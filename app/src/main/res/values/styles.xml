@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainStyle">
+
+    </style>
+
+    <style name="BottomNavigationStyle">
+        <color name="blue_primary">#3772E7</color>
+    </style>
+
+    <style name="NavigationTextStyle">
+
+    </style>
+</resources>

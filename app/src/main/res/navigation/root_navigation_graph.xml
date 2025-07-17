@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation_graph"
+    app:startDestination="@id/furnaceFragment">
+
+    <fragment
+        android:id="@+id/mediaFragment"
+        android:name="com.alonsonya.dailyfurnace.furnace.ui.FurnaceFragment"
+        android:label="fragment_furnace"
+        tools:layout="@layout/fragment_furnace">
+
+        <action
+            android:id="@+id/action_furnaceFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.alonsonya.dailyfurnace.favorite.ui.FavoriteFragment"
+        android:label="fragment_media"
+        tools:layout="@layout/fragment_search">
+
+        <action
+            android:id="@+id/action_mediaFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.alonsonya.dailyfurnace.settings.ui.SettingsFragment"
+        android:label="settings_fragment"
+        tools:layout="@layout/fragment_settings" />
+</navigation>
