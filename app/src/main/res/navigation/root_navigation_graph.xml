@@ -6,7 +6,7 @@
     app:startDestination="@id/furnaceFragment">
 
     <fragment
-        android:id="@+id/mediaFragment"
+        android:id="@+id/furnaceFragment"
         android:name="com.alonsonya.dailyfurnace.furnace.ui.FurnaceFragment"
         android:label="fragment_furnace"
         tools:layout="@layout/fragment_furnace">
@@ -17,10 +17,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/searchFragment"
+        android:id="@+id/favoriteFragment"
         android:name="com.alonsonya.dailyfurnace.favorite.ui.FavoriteFragment"
         android:label="fragment_media"
-        tools:layout="@layout/fragment_search">
+        tools:layout="@layout/fragment_favorite">
 
         <action
             android:id="@+id/action_mediaFragment_to_settingsFragment"
