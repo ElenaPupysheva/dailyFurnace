@@ -43,9 +43,9 @@
         android:text="@string/add_favorite"
         android:textSize="@dimen/size_16sp" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+    <ImageButton
+        android:layout_width="51dp"
+        android:layout_height="51dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/favorite"
         android:scaleType="centerCrop"

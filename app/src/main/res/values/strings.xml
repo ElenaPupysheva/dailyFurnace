@@ -10,4 +10,7 @@
         Morbi bibendum quam ac metus interdum, sed elementum justo pellentesque.
         Sed nec ligula quis justo lobortis convallis sed ut diam...More Info  </string>
     <string name="add_favorite">Добавить в избранное</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="write_support">Написать в поддержку</string>
+
 </resources>
