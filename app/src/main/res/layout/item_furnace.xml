@@ -6,7 +6,7 @@
     android:padding="12dp">
 
     <ImageView
-        android:id="@+id/playlist_image"
+        android:id="@+id/furnace_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:scaleType="centerCrop"
