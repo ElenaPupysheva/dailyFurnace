@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/furnaceTitle"
@@ -13,6 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="@dimen/size_16dp"
         android:text="@string/furnaceTitle"
+        android:textColor="@color/light_mode_txt"
         android:textSize="@dimen/size_16sp" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -31,6 +33,7 @@
         android:layout_margin="16dp"
         android:fontWeight="400"
         android:text="@string/furnaceInfo"
+        android:textColor="@color/light_mode_txt"
         android:textSize="@dimen/size_16sp" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -41,6 +44,7 @@
         android:layout_margin="13dp"
         android:fontWeight="400"
         android:text="@string/add_favorite"
+        android:textColor="@color/light_mode_txt"
         android:textSize="@dimen/size_16sp" />
 
     <ImageButton
