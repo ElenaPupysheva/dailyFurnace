@@ -52,6 +52,9 @@ dependencies {
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
     testImplementation(libs.junit)
+    implementation(libs.koinAndroid)
+    implementation(libs.koinViewModel)
+    implementation(libs.koinCore)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 

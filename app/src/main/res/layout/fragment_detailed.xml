@@ -5,7 +5,8 @@
     android:id="@+id/detailedFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="media.ui.DetailedFragment">
+    android:background="@color/background_color"
+    tools:context=".media.ui.DetailedFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,6 +23,17 @@
             app:title="Подробнее"
             app:titleTextColor="@color/light_mode_txt"
             tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/furnaceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:fontWeight="400"
+            android:text="@string/furnaceTitle"
+            android:textColor="@color/light_mode_txt"
+            android:textSize="@dimen/size_16sp" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="256dp"

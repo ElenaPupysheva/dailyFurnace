@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/detailedFragment"
-        android:name="media.ui.DetailedFragment"
+        android:name="com.alonsonya.dailyfurnace.media.ui.DetailedFragment"
         android:label="fragment_detailed"
         tools:layout="@layout/fragment_detailed">
 

@@ -5,4 +5,5 @@
     <color name="blue_primary">#3772E7</color>
     <color name="background_color">#e0e1dd</color>
     <color name="light_mode_txt">#212529</color>
+    <color name="controlActivated">#e85d04</color>
 </resources>

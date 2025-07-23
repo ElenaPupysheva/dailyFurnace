@@ -1,4 +1,4 @@
-package media.ui
+package com.alonsonya.dailyfurnace.media.ui
 
 import android.os.Bundle
 import android.util.Log

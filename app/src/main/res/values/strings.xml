@@ -12,5 +12,11 @@
     <string name="add_favorite">Добавить в избранное</string>
     <string name="dark_theme">Темная тема</string>
     <string name="write_support">Написать в поддержку</string>
+    <string name="link_mail">helenpupysheva@yandex.ru</string>
+    <string name="message_text">Спасибо разработчикам за крутое приложение!</string>
+    <string name="theme_text">Сообщение разработчикам dailyFurnace</string>
+    <string name="share_text">Поделиться приложением через</string>
+    <string name="link">url</string>
+    <string name="share">Поделиться приложением</string>
 
 </resources>
