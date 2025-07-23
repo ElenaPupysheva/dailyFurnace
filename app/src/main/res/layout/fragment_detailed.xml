@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailedFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="media.ui.DetailedFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            app:iconGravity="textStart"
+            app:navigationIcon="@drawable/back"
+            app:title="Подробнее"
+            app:titleTextColor="@color/light_mode_txt"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/today"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/fireplace" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/furnaceInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:fontWeight="400"
+            android:text="@string/furnaceInfo"
+            android:textColor="@color/light_mode_txt"
+            android:textSize="@dimen/size_16sp" />
+
+    </LinearLayout>
+</ScrollView>

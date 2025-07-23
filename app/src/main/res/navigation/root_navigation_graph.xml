@@ -32,4 +32,16 @@
         android:name="com.alonsonya.dailyfurnace.settings.ui.SettingsFragment"
         android:label="settings_fragment"
         tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/detailedFragment"
+        android:name="media.ui.DetailedFragment"
+        android:label="fragment_detailed"
+        tools:layout="@layout/fragment_detailed">
+
+        <action
+            android:id="@+id/action_furnaceFragment_to_detailedFragment"
+            app:destination="@id/detailedFragment" />
+
+    </fragment>
 </navigation>
