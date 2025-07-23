@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.alonsonya.dailyfurnace.databinding.FragmentFurnaceBinding
 
 class FurnaceFragment : Fragment() {
@@ -19,5 +20,12 @@ class FurnaceFragment : Fragment() {
         Log.d("FurnaceFragment", "onCreateView: Fragment Furnace создан!")
         _binding = FragmentFurnaceBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.furnaceImage.setOnClickListener {
+            findNavController().navigate(com.alonsonya.dailyfurnace.R.id.detailedFragment)
+        }
     }
 }

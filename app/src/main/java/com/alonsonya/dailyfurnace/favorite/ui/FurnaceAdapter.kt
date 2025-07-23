@@ -9,6 +9,7 @@ import com.alonsonya.dailyfurnace.favorite.presentation.FavoriteViewHolder
 
 class FurnaceAdapter(
     private val items: List<Furnace>,
+    private val onItemClick: (Furnace) -> Unit
 ) : RecyclerView.Adapter<FavoriteViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val binding = ItemFurnaceBinding.inflate(
@@ -20,9 +21,10 @@ class FurnaceAdapter(
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        holder.bind(items[position])
+        val furnace = items[position]
+        holder.bind(furnace)
+        holder.itemView.setOnClickListener { onItemClick(furnace) }
     }
-
 
     override fun getItemCount(): Int = items.size
 }
