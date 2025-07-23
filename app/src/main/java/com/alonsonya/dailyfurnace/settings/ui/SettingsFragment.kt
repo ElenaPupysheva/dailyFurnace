@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alonsonya.dailyfurnace.App
 import com.alonsonya.dailyfurnace.R
-import androidx.fragment.app.viewModels
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.alonsonya.dailyfurnace.databinding.FragmentSettingsBinding
 import com.alonsonya.dailyfurnace.settings.presentation.SettingsViewModel
 
 class SettingsFragment : Fragment() {
-    private val viewModel: SettingsViewModel by viewModels()
+    private val viewModel: SettingsViewModel by viewModel()
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
     override fun onCreateView(

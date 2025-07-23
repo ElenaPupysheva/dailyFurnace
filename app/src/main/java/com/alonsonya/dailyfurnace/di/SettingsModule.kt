@@ -22,4 +22,5 @@ val settingsModule = module {
     single<SettingsInteractor> { SettingsInteractorImpl(get()) }
 
     viewModel { SettingsViewModel(get()) }
+
 }
