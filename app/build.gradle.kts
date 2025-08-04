@@ -52,7 +52,8 @@ dependencies {
 
     implementation(libs.koinAndroid)
     implementation(libs.koinCore)
-
+    implementation(libs.glide)
+    implementation(libs.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

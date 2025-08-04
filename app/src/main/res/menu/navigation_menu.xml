@@ -3,16 +3,13 @@
     <item
         android:id="@+id/favoriteFragment"
         android:icon="@drawable/heart"
-        android:itemTextAppearance="@style/NavigationTextStyle"
         android:title="@string/favorite" />
     <item
         android:id="@+id/furnaceFragment"
         android:icon="@drawable/fireplace"
-        android:itemTextAppearance="@style/NavigationTextStyle"
         android:title="@string/today" />
     <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/gear"
-        android:itemTextAppearance="@style/NavigationTextStyle"
         android:title="@string/settings" />
 </menu>

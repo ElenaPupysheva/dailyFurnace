@@ -24,12 +24,6 @@ class FurnaceFragment : Fragment() {
         _binding = FragmentFurnaceBinding.inflate(inflater, container, false)
         return binding.root
 
-        //bindTrackInfo(currentFurnace)
-
-        //val jsonTrack = intent.getStringExtra(EXTRA_FURNACE) ?: return finish()
-        //currentFurnace = Gson().fromJson(jsonTrack, Furnace::class.java) ?: return finish()
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,6 +31,13 @@ class FurnaceFragment : Fragment() {
         binding.furnaceImage.setOnClickListener {
             findNavController().navigate(com.alonsonya.dailyfurnace.R.id.detailedFragment)
         }
+
+        //bindTrackInfo(currentFurnace)
+
+        //val jsonTrack = intent.getStringExtra(EXTRA_FURNACE) ?: return finish()
+        //currentFurnace = Gson().fromJson(jsonTrack, Furnace::class.java) ?: return finish()
+
+
 
         binding.addFavorite.setOnClickListener {
             //TODO
