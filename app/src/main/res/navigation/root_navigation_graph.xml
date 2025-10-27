@@ -11,6 +11,11 @@
         android:label="fragment_furnace"
         tools:layout="@layout/fragment_furnace">
 
+        <argument
+            android:name="furnace_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
+
         <action
             android:id="@+id/action_furnaceFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
