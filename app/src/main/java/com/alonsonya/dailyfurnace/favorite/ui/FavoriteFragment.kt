@@ -5,21 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.alonsonya.dailyfurnace.data.Furnace
-import com.alonsonya.dailyfurnace.data.mockFurnaces
+import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.databinding.FragmentFavoriteBinding
+import com.alonsonya.dailyfurnace.favorite.presentation.FavoritesViewModel
+import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FavoriteFragment : Fragment() {
     private var _binding: FragmentFavoriteBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    private val vm: FavoritesViewModel by viewModel()
+    private lateinit var adapter: FurnaceAdapter
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -27,13 +30,17 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupRecyclerViewWithMockData()
-    }
+        adapter = FurnaceAdapter { _ ->
+            findNavController().navigate(R.id.detailedFragment)
+        }
 
-    private fun setupRecyclerViewWithMockData() {
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.favoritesRecyclerView.adapter = FurnaceAdapter(mockFurnaces) { _ ->
-            findNavController().navigate(com.alonsonya.dailyfurnace.R.id.detailedFragment)
+        binding.favoritesRecyclerView.adapter = adapter
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.STARTED) {
+                vm.items.collect { list -> adapter.submitList(list) }
+            }
         }
     }
 
@@ -41,5 +48,4 @@ class FavoriteFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
