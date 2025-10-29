@@ -1,7 +1,6 @@
 package com.alonsonya.dailyfurnace.media.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +16,6 @@ class DetailedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        Log.d("DetailedFragment", "onCreateView: Fragment Detailed создан!")
         _binding = FragmentDetailedBinding.inflate(inflater, container, false)
         return binding.root
     }
