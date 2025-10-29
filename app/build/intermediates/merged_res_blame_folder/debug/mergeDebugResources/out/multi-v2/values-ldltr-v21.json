@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-51:/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\39bd79d553b4b24f0df93d5d2b4b81dd\\transformed\\appcompat-1.7.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}
