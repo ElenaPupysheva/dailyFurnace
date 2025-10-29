@@ -17,7 +17,7 @@ private const val CHANNEL_FACTS = "facts_channel"
 class AppFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
-        // TODO: отправь token на бэкенд, если нужно таргетирование
+        super.onNewToken(token)
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
