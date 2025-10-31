@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.alonsonya.dailyfurnace.data.FURNACE_PREFERENCES
 import com.alonsonya.dailyfurnace.data.SWITCH_KEY
 import com.alonsonya.dailyfurnace.di.databaseModule
+import com.alonsonya.dailyfurnace.di.networkModule
 import com.alonsonya.dailyfurnace.di.settingsModule
 import com.alonsonya.dailyfurnace.favorite.di.favoriteModule
 import com.alonsonya.dailyfurnace.furnace.di.furnaceModule
@@ -32,7 +33,8 @@ class App : Application() {
                     furnaceModule,
                     settingsModule,
                     favoriteModule,
-                    databaseModule
+                    databaseModule,
+                    networkModule
                 )
             )
         }
