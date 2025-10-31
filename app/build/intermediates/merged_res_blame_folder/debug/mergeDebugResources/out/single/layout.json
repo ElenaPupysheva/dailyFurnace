@@ -1,31 +1,27 @@
 [
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\fragment_settings.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\fragment_settings.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/fragment_furnace.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/fragment_furnace.xml"
     },
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\item_furnace.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\item_furnace.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/fragment_detailed.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/fragment_detailed.xml"
     },
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\fragment_detailed.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\fragment_detailed.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/fragment_favorite.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/fragment_favorite.xml"
     },
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\fragment_favorite.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\fragment_favorite.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/item_furnace.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/item_furnace.xml"
     },
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\furnace_view.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\furnace_view.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/furnace_view.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/furnace_view.xml"
     },
     {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\fragment_furnace.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\fragment_furnace.xml"
-    },
-    {
-        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-mergeDebugResources-52:\\layout\\activity_root.xml",
-        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-55:\\layout\\activity_root.xml"
+        "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/activity_root.xml",
+        "source": "com.alonsonya.dailyfurnace.app-main-55:/layout/activity_root.xml"
     },
     {
         "merged": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/layout/fragment_settings.xml",
