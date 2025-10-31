@@ -5,16 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.data.mockFurnaces
 import com.alonsonya.dailyfurnace.databinding.FragmentFurnaceBinding
 import com.alonsonya.dailyfurnace.furnace.presentation.FurnaceViewModel
-import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 class FurnaceFragment : Fragment() {
     private var _binding: FragmentFurnaceBinding? = null
