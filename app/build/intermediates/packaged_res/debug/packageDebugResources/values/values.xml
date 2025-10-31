@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#e0e1dd</color>
+    <color name="black">#FF000000</color>
+    <color name="blue_primary">#3772E7</color>
+    <color name="controlActivated">#e85d04</color>
+    <color name="light_mode_txt">#212529</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="size_14dp">14dp</dimen>
+    <dimen name="size_16dp">16dp</dimen>
+    <dimen name="size_16sp">16sp</dimen>
+    <dimen name="size_2dp">2dp</dimen>
+    <dimen name="size_4dp">4dp</dimen>
+    <string name="add_favorite">Добавить в избранное</string>
+    <string name="app_name">dailyFurnace</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="favorite">Избранное</string>
+    <string name="furnaceInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed tempus imperdiet suscipit. Donec aliquet tempus tortor.
+        Pellentesque quis arcu scelerisque, dignissim sem a, fermentum quam.
+        Morbi bibendum quam ac metus interdum, sed elementum justo pellentesque.
+        Sed nec ligula quis justo lobortis convallis sed ut diam...More Info  </string>
+    <string name="furnaceTitle">Название печи</string>
+    <string name="gcm_defaultSenderId" translatable="false">533194565957</string>
+    <string name="google_api_key" translatable="false">AIzaSyCaLpw-ez1n25VCPPJKXoDrV-4sfnWmU9E</string>
+    <string name="google_app_id" translatable="false">1:533194565957:android:8838f1a2c02fbcb62b762c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCaLpw-ez1n25VCPPJKXoDrV-4sfnWmU9E</string>
+    <string name="google_storage_bucket" translatable="false">dailyfurnace-e956e.firebasestorage.app</string>
+    <string name="link">url</string>
+    <string name="link_mail">helenpupysheva@yandex.ru</string>
+    <string name="message_text">Спасибо разработчикам за крутое приложение!</string>
+    <string name="project_id" translatable="false">dailyfurnace-e956e</string>
+    <string name="settings">Настройки</string>
+    <string name="share">Поделиться приложением</string>
+    <string name="share_text">Поделиться приложением через</string>
+    <string name="theme_text">Сообщение разработчикам dailyFurnace</string>
+    <string name="today">Печь</string>
+    <string name="write_support">Написать в поддержку</string>
+    <style name="Base.Theme.DailyFurnace" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorControlActivated">@color/controlActivated</item>
+        <item name="colorPrimary">@color/controlActivated</item>
+    </style>
+    <style name="BottomNavText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="BottomNavigationStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconSize">24dp</item>
+        <item name="itemIconTint">@color/bottom_nav_color</item>
+        <item name="itemTextColor">@color/bottom_nav_color</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavText</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavText</item>
+    </style>
+</resources>

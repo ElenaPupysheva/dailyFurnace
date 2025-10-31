@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.databinding.ItemFurnaceBinding
 import com.alonsonya.dailyfurnace.favorite.presentation.FavoriteViewHolder

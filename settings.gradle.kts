@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "dailyFurnace"
 include(":app")
- 
