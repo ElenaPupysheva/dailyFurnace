@@ -9,5 +9,6 @@ import org.koin.dsl.module
 
 val favoriteModule = module {
     single<FavoritesRepository> { FavoritesRepositoryImpl(get()) }
-    viewModel { FavoritesViewModel(get()) }
+    viewModel { FavoritesViewModel(favorites = get(), productsRepo = get()) }
+
 }

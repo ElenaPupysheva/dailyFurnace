@@ -20,9 +20,8 @@
             android:padding="4dp"
             app:iconGravity="textStart"
             app:navigationIcon="@drawable/back"
-            app:title="Подробнее"
-            app:titleTextColor="@color/light_mode_txt"
-            tools:ignore="MissingConstraints" />
+            app:title="@string/details"
+            app:titleTextColor="@color/light_mode_txt" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/furnaceTitle"
@@ -30,12 +29,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:fontWeight="400"
             android:text="@string/furnaceTitle"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/furnaceImage"
             android:layout_width="256dp"
             android:layout_height="256dp"
             android:layout_gravity="center_horizontal"
@@ -49,7 +48,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:fontWeight="400"
             android:text="@string/furnaceInfo"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />

@@ -14,6 +14,7 @@
     <string name="add_favorite">Добавить в избранное</string>
     <string name="app_name">dailyFurnace</string>
     <string name="dark_theme">Темная тема</string>
+    <string name="details">Подробнее</string>
     <string name="favorite">Избранное</string>
     <string name="furnaceInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Sed tempus imperdiet suscipit. Donec aliquet tempus tortor.
