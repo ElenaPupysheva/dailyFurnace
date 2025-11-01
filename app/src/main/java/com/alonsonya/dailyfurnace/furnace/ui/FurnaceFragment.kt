@@ -1,6 +1,7 @@
 package com.alonsonya.dailyfurnace.furnace.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,34 +35,35 @@ class FurnaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1) грузим печь по аргументу
-        val id = arguments?.getInt("furnace_id") ?: -1
-        if (id != -1) vm.loadById(id)
+        // 1) Грузим как и раньше через стартовый helper ВМ.
+        val argId = arguments?.getInt("furnace_id") ?: -1
+        Log.d("FurnaceScreen", "arg furnace_id=$argId")
+        vm.loadStartup(argId)
 
-        // 2) наблюдаем стейт
+        // 2) Наблюдаем стейт и заполняем UI.
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
-                    // данные
                     s.product?.let { p ->
                         binding.furnaceTitle.text = p.name
-                        binding.furnaceInfo.text  = p.description.orEmpty()
+                        binding.furnaceInfo.text = p.description.orEmpty()
                         binding.furnaceImage.load(p.image_url) {
                             placeholder(R.drawable.fireplace)
                             error(R.drawable.fireplace)
                             crossfade(true)
                         }
                     }
-                    // «избранное» — подсветим текстовую кнопку
+                    // подсветка «избранное»
                     binding.addFavorite.isSelected = s.isFavorite
+                    // если есть иконка-кнопка — поддержим ту же подсветку
+                    runCatching { binding.favoriteButton.isSelected = s.isFavorite }
                 }
             }
         }
 
-        // 3) клик «в избранное»
+        // 3) Клики «в избранное» (оставляю оба, как у тебя).
         binding.addFavorite.setOnClickListener { vm.toggleFavorite() }
-        // если хочешь, второй дублирующий клик повесь на ImageButton:
-        // binding.root.findViewById<ImageButton>(R.id.<придумай_id>).setOnClickListener { vm.toggleFavorite() }
+        runCatching { binding.favoriteButton.setOnClickListener { vm.toggleFavorite() } }
     }
 
     override fun onDestroyView() {

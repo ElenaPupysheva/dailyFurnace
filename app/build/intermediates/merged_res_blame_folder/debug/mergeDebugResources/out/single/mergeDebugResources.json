@@ -1,130 +1,138 @@
 [
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_heart_filled.xml.flat",
+        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/heart_filled.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_ic_android_black_24dp.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\ic_android_black_24dp.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_share.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/share.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/menu_navigation_menu.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/menu/navigation_menu.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_heart.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\heart.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_fragment_settings.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/fragment_settings.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_item_furnace.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/item_furnace.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_ic_support.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/ic_support.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-anydpi_ic_launcher.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-anydpi/ic_launcher.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\menu_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\menu\\navigation_menu.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_back.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\back.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-anydpi_ic_launcher_round.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-anydpi/ic_launcher_round.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_item_furnace.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\item_furnace.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_back.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/back.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-anydpi\\ic_launcher_round.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_ic_launcher_background.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/ic_launcher_background.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_fragment_favorite.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\fragment_favorite.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/color_bottom_nav_color.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/color/bottom_nav_color.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_fragment_settings.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_fragment_detailed.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/fragment_detailed.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/xml_data_extraction_rules.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/xml/data_extraction_rules.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_gear.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\gear.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_ic_android_black_24dp.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/ic_android_black_24dp.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_activity_root.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\activity_root.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\xml\\backup_rules.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_gear.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/gear.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/xml_backup_rules.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/xml/backup_rules.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_fireplace.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/fireplace.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\color_bottom_nav_color.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\color\\bottom_nav_color.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_fireplace.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\fireplace.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_ic_support.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\ic_support.xml"
     },
     {
         "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_fragment_furnace.xml.flat",
         "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/fragment_furnace.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_activity_root.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/activity_root.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_fragment_detailed.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\fragment_detailed.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_furnace_view.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/furnace_view.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\drawable_share.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\drawable\\share.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\mipmap-anydpi\\ic_launcher.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_fragment_furnace.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\fragment_furnace.xml"
     },
     {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/layout_fragment_favorite.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/layout/fragment_favorite.xml"
-    },
-    {
-        "merged": "com.alonsonya.dailyfurnace.app-debug-54:/drawable_heart.xml.flat",
-        "source": "com.alonsonya.dailyfurnace.app-main-56:/drawable/heart.xml"
+        "merged": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-debug-54:\\layout_furnace_view.xml.flat",
+        "source": "C:\\Users\\Alonso\\.gradle\\daemon\\9.0-milestone-1\\com.alonsonya.dailyfurnace.app-main-56:\\layout\\furnace_view.xml"
     }
 ]

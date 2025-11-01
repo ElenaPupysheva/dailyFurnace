@@ -3111,6 +3111,7 @@ drawable gear
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable heart
+drawable heart_filled
 drawable ic_android_black_24dp
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
@@ -3410,6 +3411,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id favoriteButton
 id favoriteFragment
 id favoritesRecyclerView
 id fill
@@ -4160,6 +4162,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string project_id
+string remove_favorite
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
