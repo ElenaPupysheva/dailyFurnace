@@ -1,6 +1,7 @@
 package com.alonsonya.dailyfurnace.push
 
 import android.Manifest
+import android.content.ContentValues.TAG
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -37,7 +38,7 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        Log.d("FCM", token)
+        Log.d(TAG, "Refreshed token: $token")
         serviceScope.launch {
             runCatching {
                 tokenApi.register(RegisterPushReq(token))
