@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-41:12
-INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-45:12
+INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:2:1-45:12
 MERGED from [androidx.databinding:viewbinding:8.13.0] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\4e752586d026e1d995ab94426862af63\transformed\jetified-viewbinding-8.13.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.navigation:navigation-runtime-android:2.9.1] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\c5d69d2af81058202541c9a3c0d25038\transformed\jetified-navigation-runtime-release\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.navigation:navigation-common-android:2.9.1] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\29d8bb7923592267b9b41e19377fc52e\transformed\jetified-navigation-common-release\AndroidManifest.xml:17:1-22:12
@@ -130,8 +130,8 @@ MERGED from [com.google.firebase:firebase-messaging:24.0.3] C:\Users\Alonso\.gra
 	android:name
 		ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:7:22-74
 application
-ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:9:5-39:19
-INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:9:5-39:19
+ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:9:5-43:19
+INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:9:5-43:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\5a69633428a4bbd2c5e757993cd75a23\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\5a69633428a4bbd2c5e757993cd75a23\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.1] C:\Users\Alonso\.gradle\caches\9.0-milestone-1\transforms\bcf7e6d0c838558981ba71f14e6d2cb0\transformed\constraintlayout-2.2.1\AndroidManifest.xml:7:5-20
@@ -240,6 +240,12 @@ action#com.google.firebase.MESSAGING_EVENT
 ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:35:17-78
 	android:name
 		ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:35:25-75
+meta-data#com.google.firebase.messaging.default_notification_channel_id
+ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:39:9-41:45
+	android:value
+		ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:41:13-42
+	android:name
+		ADDED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml:40:13-89
 uses-sdk
 INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Alonso\AndroidStudioProjects\dailyFurnace\app\src\main\AndroidManifest.xml

@@ -1,6 +1,8 @@
 package com.alonsonya.dailyfurnace.push
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.util.Log
 import androidx.core.content.edit
 import com.alonsonya.dailyfurnace.data.api.RegisterPushReq
 import com.alonsonya.dailyfurnace.data.api.TokenApi
@@ -29,7 +31,7 @@ object FcmRegistrar {
 
         // отправляем токен на сервер
         tokenApi.register(RegisterPushReq(token = token))
-
+        Log.d(TAG, "Refreshed token: $token")
         // подписываемся на базовые топики
         runCatching { FirebaseMessaging.getInstance().subscribeToTopic("facts").await() }
         runCatching { FirebaseMessaging.getInstance().subscribeToTopic("all").await() }
