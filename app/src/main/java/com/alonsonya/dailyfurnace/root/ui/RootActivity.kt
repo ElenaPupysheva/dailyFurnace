@@ -1,12 +1,14 @@
 package com.alonsonya.dailyfurnace.root.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.databinding.ActivityRootBinding
+import com.google.firebase.messaging.FirebaseMessaging
 
 class RootActivity : AppCompatActivity() {
 
@@ -36,5 +38,11 @@ class RootActivity : AppCompatActivity() {
                 }
             }
         }
+        FirebaseMessaging.getInstance().token
+            .addOnSuccessListener { t ->
+                Log.d("FCM", "TOKEN=$t")
+                // ВРЕМЕННО: скопируйте токен как удобно (в буфер/текст/Toast)
+            }
+            .addOnFailureListener { e -> Log.e("FCM", "getToken failed", e) }
     }
 }
