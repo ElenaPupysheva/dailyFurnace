@@ -19,5 +19,5 @@
     <string name="link">url</string>
     <string name="share">Поделиться приложением</string>
     <string name="details">Подробнее</string>
-
+    <string name="remove_favorite">Удалить из избранного</string>
 </resources>

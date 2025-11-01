@@ -1,14 +1,18 @@
 package com.alonsonya.dailyfurnace.data.repo
 
 import com.alonsonya.dailyfurnace.data.ProductDto
-import com.alonsonya.dailyfurnace.data.ProductsResponse
 import com.alonsonya.dailyfurnace.data.api.ApiService
-import com.alonsonya.dailyfurnace.di.BASE_ORIGIN
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 
 class ProductsRepository(private val api: ApiService) {
+
+    suspend fun getProduct(id: Int): ProductDto =
+        api.getProduct(id).normalizeUrl()
+
+    suspend fun getFirstProductOrNull(): ProductDto? =
+        api.getProducts().products.firstOrNull()?.normalizeUrl()
 
     suspend fun getByIds(ids: List<Int>): List<ProductDto> {
         if (ids.isEmpty()) return emptyList()

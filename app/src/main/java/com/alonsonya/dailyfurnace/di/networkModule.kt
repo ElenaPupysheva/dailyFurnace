@@ -13,17 +13,13 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val BASE_URL = "https://furnace.eln.haswell668.ru/api/"
-const val BASE_ORIGIN = "https://furnace.eln.haswell668.ru"
 val networkModule = module {
     single {
-        Moshi.Builder()
-            .addLast(KotlinJsonAdapterFactory())
-            .build()
+        Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
     }
     single {
         val logging = HttpLoggingInterceptor().apply {
-            val isDebug = BuildConfig.IS_DEBUG
-            level = if (isDebug) HttpLoggingInterceptor.Level.BODY
+            level = if (BuildConfig.IS_DEBUG) HttpLoggingInterceptor.Level.BODY
             else HttpLoggingInterceptor.Level.NONE
         }
         OkHttpClient.Builder()
@@ -41,7 +37,7 @@ val networkModule = module {
             .client(get())
             .addConverterFactory(MoshiConverterFactory.create(get()))
             .build()
-            .create(ApiService::class.java)
     }
-    single<TokenApi> { get<Retrofit>().create(TokenApi::class.java) }
+    single<ApiService> { get<Retrofit>().create(ApiService::class.java) }
+    single<TokenApi>   { get<Retrofit>().create(TokenApi::class.java) }
 }

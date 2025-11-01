@@ -31,6 +31,7 @@
     <string name="link_mail">helenpupysheva@yandex.ru</string>
     <string name="message_text">Спасибо разработчикам за крутое приложение!</string>
     <string name="project_id" translatable="false">dailyfurnace-e956e</string>
+    <string name="remove_favorite">Удалить из избранного</string>
     <string name="settings">Настройки</string>
     <string name="share">Поделиться приложением</string>
     <string name="share_text">Поделиться приложением через</string>
