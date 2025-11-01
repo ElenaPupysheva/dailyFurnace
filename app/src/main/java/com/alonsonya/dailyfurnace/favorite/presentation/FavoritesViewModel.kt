@@ -2,24 +2,53 @@ package com.alonsonya.dailyfurnace.favorite.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.alonsonya.dailyfurnace.data.Furnace
-import com.alonsonya.dailyfurnace.data.mockFurnaces
+import com.alonsonya.dailyfurnace.data.repo.ProductsRepository
 import com.alonsonya.dailyfurnace.favorite.domain.FavoritesRepository
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.flow.stateIn
+data class FavoriteUiItem(val id: Int, val name: String, val imageUrl: String?)
+data class FavoriteUiState(
+    val loading: Boolean = false,
+    val items: List<FavoriteUiItem> = emptyList(),
+    val error: String? = null
+)
 
-class FavoritesViewModel( private val favorites: FavoritesRepository
+class FavoritesViewModel(
+    private val favorites: FavoritesRepository,
+    private val productsRepo: ProductsRepository
 ) : ViewModel() {
 
-    // Пока берём печи из mockFurnaces и фильтруем по избранным ID.
-    // Когда подключите бэкенд — заменишь фильтр на запрос «получить печи по списку ID».
-    val items = favorites.observeAllIds()
-        .map { ids ->
-            val set = ids.toSet()
-            mockFurnaces
-                .filter { it.furnaceId in set }
-                .map { it.copy(isFavorite = true) }
-        }
-        .stateIn(viewModelScope, SharingStarted.Lazily, emptyList<Furnace>())
+    private val favIdsFlow = favorites.observeAllIds()
+        .map { it.toSet() }
+        .distinctUntilChanged()
+
+    val state: StateFlow<FavoriteUiState> =
+        favIdsFlow
+            .sample(300) // защита от частых триггеров
+            .flatMapLatest { ids ->
+                flow {
+                    if (ids.isEmpty()) {
+                        emit(FavoriteUiState(items = emptyList()))
+                    } else {
+                        emit(FavoriteUiState(loading = true))
+                        val list = runCatching {
+                            // сначала пробуем батч-эндпоинт, иначе fallback
+                            productsRepo.getByIds(ids.toList())
+                        }.getOrElse {
+                            productsRepo.getByIdsFallback(ids.toList())
+                        }
+                        val ui = list
+                            .sortedBy { it.id } // или по твоему правилу
+                            .map { p -> FavoriteUiItem(p.id, p.name, p.image_url) }
+                        emit(FavoriteUiState(items = ui))
+                    }
+                }.catch { e ->
+                    emit(FavoriteUiState(error = e.message ?: "Network error"))
+                }
+            }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), FavoriteUiState())
 }

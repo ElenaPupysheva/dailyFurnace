@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-51:/values-v26/values-v26.xml",
+            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\8366a4481c3bf13ecfc8d8ad04be1759\\transformed\\appcompat-1.7.1\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\dd26f9428367d57cdbeed4257661147a\\transformed\\appcompat-1.7.1\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

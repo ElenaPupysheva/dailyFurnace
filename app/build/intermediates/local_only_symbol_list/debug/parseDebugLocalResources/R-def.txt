@@ -56,6 +56,7 @@ navigation root_navigation_graph
 string add_favorite
 string app_name
 string dark_theme
+string details
 string favorite
 string furnaceInfo
 string furnaceTitle

@@ -2,6 +2,7 @@ package com.alonsonya.dailyfurnace.di
 
 import com.alonsonya.dailyfurnace.BuildConfig
 import com.alonsonya.dailyfurnace.data.api.TokenApi
+import com.alonsonya.dailyfurnace.data.api.ApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -11,7 +12,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-
+private const val BASE_URL = "https://furnace.eln.haswell668.ru/api/"
+const val BASE_ORIGIN = "https://furnace.eln.haswell668.ru"
 val networkModule = module {
     single {
         Moshi.Builder()
@@ -25,6 +27,8 @@ val networkModule = module {
             else HttpLoggingInterceptor.Level.NONE
         }
         OkHttpClient.Builder()
+            .followRedirects(false)
+            .followSslRedirects(true)
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)
@@ -33,10 +37,11 @@ val networkModule = module {
     }
     single {
         Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8080/")
-            .addConverterFactory(MoshiConverterFactory.create(get()))
+            .baseUrl(BASE_URL)
             .client(get())
+            .addConverterFactory(MoshiConverterFactory.create(get()))
             .build()
+            .create(ApiService::class.java)
     }
     single<TokenApi> { get<Retrofit>().create(TokenApi::class.java) }
 }
