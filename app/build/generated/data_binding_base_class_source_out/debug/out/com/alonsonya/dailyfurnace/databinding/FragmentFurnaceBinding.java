@@ -4,6 +4,7 @@ package com.alonsonya.dailyfurnace.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +25,9 @@ public final class FragmentFurnaceBinding implements ViewBinding {
   public final MaterialTextView addFavorite;
 
   @NonNull
+  public final ImageButton favoriteButton;
+
+  @NonNull
   public final ShapeableImageView furnaceImage;
 
   @NonNull
@@ -33,10 +37,12 @@ public final class FragmentFurnaceBinding implements ViewBinding {
   public final MaterialTextView furnaceTitle;
 
   private FragmentFurnaceBinding(@NonNull LinearLayout rootView,
-      @NonNull MaterialTextView addFavorite, @NonNull ShapeableImageView furnaceImage,
-      @NonNull MaterialTextView furnaceInfo, @NonNull MaterialTextView furnaceTitle) {
+      @NonNull MaterialTextView addFavorite, @NonNull ImageButton favoriteButton,
+      @NonNull ShapeableImageView furnaceImage, @NonNull MaterialTextView furnaceInfo,
+      @NonNull MaterialTextView furnaceTitle) {
     this.rootView = rootView;
     this.addFavorite = addFavorite;
+    this.favoriteButton = favoriteButton;
     this.furnaceImage = furnaceImage;
     this.furnaceInfo = furnaceInfo;
     this.furnaceTitle = furnaceTitle;
@@ -75,6 +81,12 @@ public final class FragmentFurnaceBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.favoriteButton;
+      ImageButton favoriteButton = ViewBindings.findChildViewById(rootView, id);
+      if (favoriteButton == null) {
+        break missingId;
+      }
+
       id = R.id.furnaceImage;
       ShapeableImageView furnaceImage = ViewBindings.findChildViewById(rootView, id);
       if (furnaceImage == null) {
@@ -93,8 +105,8 @@ public final class FragmentFurnaceBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFurnaceBinding((LinearLayout) rootView, addFavorite, furnaceImage,
-          furnaceInfo, furnaceTitle);
+      return new FragmentFurnaceBinding((LinearLayout) rootView, addFavorite, favoriteButton,
+          furnaceImage, furnaceInfo, furnaceTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
