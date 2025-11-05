@@ -12,3 +12,5 @@ local.properties
 target/
 *.log
 logs/
+*.hprof.heap
+*.heap
