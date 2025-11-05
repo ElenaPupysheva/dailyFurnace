@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-51:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\5a69633428a4bbd2c5e757993cd75a23\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\e777e816513fd44392f8bb89973cd4e7\\transformed\\material-1.12.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

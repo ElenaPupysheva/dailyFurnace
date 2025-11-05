@@ -5,5 +5,5 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val furnaceModule = module {
-    viewModel { FurnaceViewModel(get()) }
+    viewModel { FurnaceViewModel(products = get(), favorites = get()) }
 }

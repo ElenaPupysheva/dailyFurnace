@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.alonsonya.dailyfurnace.R;
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -24,6 +25,9 @@ public final class FragmentDetailedBinding implements ViewBinding {
   public final ScrollView detailedFragment;
 
   @NonNull
+  public final ShapeableImageView furnaceImage;
+
+  @NonNull
   public final MaterialTextView furnaceInfo;
 
   @NonNull
@@ -33,10 +37,12 @@ public final class FragmentDetailedBinding implements ViewBinding {
   public final Toolbar toolbarDetailed;
 
   private FragmentDetailedBinding(@NonNull ScrollView rootView,
-      @NonNull ScrollView detailedFragment, @NonNull MaterialTextView furnaceInfo,
-      @NonNull MaterialTextView furnaceTitle, @NonNull Toolbar toolbarDetailed) {
+      @NonNull ScrollView detailedFragment, @NonNull ShapeableImageView furnaceImage,
+      @NonNull MaterialTextView furnaceInfo, @NonNull MaterialTextView furnaceTitle,
+      @NonNull Toolbar toolbarDetailed) {
     this.rootView = rootView;
     this.detailedFragment = detailedFragment;
+    this.furnaceImage = furnaceImage;
     this.furnaceInfo = furnaceInfo;
     this.furnaceTitle = furnaceTitle;
     this.toolbarDetailed = toolbarDetailed;
@@ -71,6 +77,12 @@ public final class FragmentDetailedBinding implements ViewBinding {
     missingId: {
       ScrollView detailedFragment = (ScrollView) rootView;
 
+      id = R.id.furnaceImage;
+      ShapeableImageView furnaceImage = ViewBindings.findChildViewById(rootView, id);
+      if (furnaceImage == null) {
+        break missingId;
+      }
+
       id = R.id.furnaceInfo;
       MaterialTextView furnaceInfo = ViewBindings.findChildViewById(rootView, id);
       if (furnaceInfo == null) {
@@ -89,8 +101,8 @@ public final class FragmentDetailedBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentDetailedBinding((ScrollView) rootView, detailedFragment, furnaceInfo,
-          furnaceTitle, toolbarDetailed);
+      return new FragmentDetailedBinding((ScrollView) rootView, detailedFragment, furnaceImage,
+          furnaceInfo, furnaceTitle, toolbarDetailed);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

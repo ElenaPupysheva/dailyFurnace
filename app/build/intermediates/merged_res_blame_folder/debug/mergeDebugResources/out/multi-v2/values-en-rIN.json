@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-51:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.alonsonya.dailyfurnace.app-mergeDebugResources-52:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\8366a4481c3bf13ecfc8d8ad04be1759\\transformed\\appcompat-1.7.1\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\9609e1e153cc64b86c24f8b99afacbd3\\transformed\\navigation-ui-2.9.1\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,161",
+                        "endColumns": "105,116",
+                        "endOffsets": "156,273"
+                    },
+                    "to": {
+                        "startLines": "36,37",
+                        "startColumns": "4,4",
+                        "startOffsets": "3481,3587",
+                        "endColumns": "105,116",
+                        "endOffsets": "3582,3699"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\dd26f9428367d57cdbeed4257661147a\\transformed\\appcompat-1.7.1\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\6ea93b2e7526f93ad878913242b2992c\\transformed\\core-1.16.0\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\91e65917a36e363cbb5e274a690f22b7\\transformed\\core-1.16.0\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -35,23 +52,6 @@
                         "startOffsets": "2762,2858,2960,3059,3158,3262,3365,3787",
                         "endColumns": "95,101,98,98,103,102,115,100",
                         "endOffsets": "2853,2955,3054,3153,3257,3360,3476,3883"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Alonso\\.gradle\\caches\\9.0-milestone-1\\transforms\\7d316e81da9e58d6f2a9d9f840dbcdc1\\transformed\\navigation-ui-2.9.1\\res\\values-en-rIN\\values-en-rIN.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,161",
-                        "endColumns": "105,116",
-                        "endOffsets": "156,273"
-                    },
-                    "to": {
-                        "startLines": "36,37",
-                        "startColumns": "4,4",
-                        "startOffsets": "3481,3587",
-                        "endColumns": "105,116",
-                        "endOffsets": "3582,3699"
                     }
                 }
             ]

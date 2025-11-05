@@ -8,3 +8,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.hprof
+target/
+*.log
+logs/
+*.hprof.heap
+*.heap

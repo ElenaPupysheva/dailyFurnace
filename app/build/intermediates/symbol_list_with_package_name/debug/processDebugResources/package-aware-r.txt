@@ -3111,6 +3111,7 @@ drawable gear
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable heart
+drawable heart_filled
 drawable ic_android_black_24dp
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
@@ -3342,6 +3343,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id compress
 id confirm_button
@@ -3409,6 +3411,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id favoriteButton
 id favoriteFragment
 id favoritesRecyclerView
 id fill
@@ -4030,6 +4033,7 @@ string common_signin_button_text
 string common_signin_button_text_long
 string dark_theme
 string dest_title
+string details
 string error_a11y_label
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
@@ -4158,6 +4162,7 @@ string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
 string project_id
+string remove_favorite
 string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
