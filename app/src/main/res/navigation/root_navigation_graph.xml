@@ -19,6 +19,11 @@
         <action
             android:id="@+id/action_furnaceFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+
+        <!-- (опционально) можно и тут объявить переход к деталям -->
+        <action
+            android:id="@+id/action_furnaceFragment_to_detailedFragment"
+            app:destination="@id/detailedFragment" />
     </fragment>
 
     <fragment
@@ -44,9 +49,10 @@
         android:label="fragment_detailed"
         tools:layout="@layout/fragment_detailed">
 
-        <action
-            android:id="@+id/action_furnaceFragment_to_detailedFragment"
-            app:destination="@id/detailedFragment" />
-
+        <!-- ВОТ ЭТО ГЛАВНОЕ: аргумент, который ты передаёшь -->
+        <argument
+            android:name="product_id"
+            app:argType="integer"
+            android:defaultValue="-1" />
     </fragment>
 </navigation>

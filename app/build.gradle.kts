@@ -19,6 +19,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "APP_VERSION_NAME", "\"${versionName}\"")
+
+        multiDexEnabled = true
     }
 
     buildTypes {
@@ -46,6 +48,22 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+    }
+    packaging {
+        resources {
+
+            pickFirsts += "META-INF/io.netty.versions.properties"
+            excludes += setOf(
+                "META-INF/INDEX.LIST",
+                "META-INF/DEPENDENCIES",
+                "META-INF/NOTICE",
+                "META-INF/LICENSE",
+                "META-INF/LICENSE.txt",
+                "META-INF/LICENSE*",
+                "META-INF/AL2.0",
+                "META-INF/LGPL2.1"
+            )
+        }
     }
 }
 
@@ -79,6 +97,7 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     implementation(libs.transport.api)
+    implementation(libs.firebase.appdistribution.gradle)
     ksp(libs.androidx.room.compiler)
 
     // Networking
@@ -88,6 +107,12 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
     ksp("com.squareup.moshi:moshi-kotlin-codegen:1.15.1")
+
+    // Coil для ImageView
+    implementation("io.coil-kt:coil:2.6.0")
+
+    // Multidex
+    implementation("androidx.multidex:multidex:2.0.1")
 
     // Tests
     testImplementation(libs.junit)

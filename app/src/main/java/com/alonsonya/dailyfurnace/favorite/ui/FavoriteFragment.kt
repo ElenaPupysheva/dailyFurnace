@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
@@ -22,7 +24,11 @@ class FavoriteFragment : Fragment() {
     private val vm: FavoritesViewModel by viewModel()
     private lateinit var adapter: FurnaceAdapter
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -30,16 +36,22 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = FurnaceAdapter { _ ->
-            findNavController().navigate(R.id.detailedFragment)
+        // ВАЖНО: передаём id выбранного продукта в подробный экран
+        adapter = FurnaceAdapter { item ->
+            findNavController().navigate(
+                R.id.detailedFragment,
+                bundleOf("product_id" to item.id)
+            )
         }
 
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.favoritesRecyclerView.adapter = adapter
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.STARTED) {
-                vm.items.collect { list -> adapter.submitList(list) }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                vm.state.collect { s ->
+                    adapter.submitList(s.items)
+                }
             }
         }
     }

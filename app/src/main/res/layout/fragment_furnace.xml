@@ -49,6 +49,7 @@
         android:textSize="@dimen/size_16sp" />
 
     <ImageButton
+        android:id="@+id/favoriteButton"
         android:layout_width="51dp"
         android:layout_height="51dp"
         android:layout_gravity="center_horizontal"
