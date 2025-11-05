@@ -1,3 +1,0 @@
-com.alonsonya.dailyfurnace.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

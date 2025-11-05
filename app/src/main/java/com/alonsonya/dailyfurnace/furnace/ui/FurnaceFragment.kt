@@ -5,12 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import coil.load
 import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.databinding.FragmentFurnaceBinding
@@ -25,8 +23,6 @@ class FurnaceFragment : Fragment() {
 
     private val vm: FurnaceViewModel by viewModel()
 
-    private var currentProductId: Int? = null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -38,31 +34,17 @@ class FurnaceFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val idFromArgs = arguments?.getInt("furnace_id") ?: -1
-        vm.loadStartup(idFromArgs)
-        val id = arguments?.getInt("furnace_id") ?: -1
-        Log.d("FurnaceScreen", "arg furnace_id=$id")
-        if (id != -1) vm.loadById(id)
-        binding.addFavorite.setOnClickListener { vm.toggleFavorite() }
-        binding.favoriteButton.setOnClickListener { vm.toggleFavorite() }
 
-        val openDetails: (View) -> Unit = {
-            currentProductId?.let { pid ->
-                findNavController().navigate(
-                    R.id.detailedFragment,
-                    bundleOf("product_id" to pid)
-                )
-            }
-        }
-        binding.furnaceImage.setOnClickListener(openDetails)
-        binding.furnaceTitle.setOnClickListener(openDetails)
-        binding.furnaceInfo.setOnClickListener(openDetails)
+        // 1) Грузим как и раньше через стартовый helper ВМ.
+        val argId = arguments?.getInt("furnace_id") ?: -1
+        Log.d("FurnaceScreen", "arg furnace_id=$argId")
+        vm.loadStartup(argId)
 
+        // 2) Наблюдаем стейт и заполняем UI.
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
                     s.product?.let { p ->
-                        currentProductId = p.id
                         binding.furnaceTitle.text = p.name
                         binding.furnaceInfo.text = p.description.orEmpty()
                         binding.furnaceImage.load(p.image_url) {
@@ -71,10 +53,17 @@ class FurnaceFragment : Fragment() {
                             crossfade(true)
                         }
                     }
+                    // подсветка «избранное»
                     binding.addFavorite.isSelected = s.isFavorite
+                    // если есть иконка-кнопка — поддержим ту же подсветку
+                    runCatching { binding.favoriteButton.isSelected = s.isFavorite }
                 }
             }
         }
+
+        // 3) Клики «в избранное» (оставляю оба, как у тебя).
+        binding.addFavorite.setOnClickListener { vm.toggleFavorite() }
+        runCatching { binding.favoriteButton.setOnClickListener { vm.toggleFavorite() } }
     }
 
     override fun onDestroyView() {

@@ -28,6 +28,7 @@ object FcmRegistrar {
             // уже регистрировали этот токен
             return
         }
+
         // отправляем токен на сервер
         tokenApi.register(RegisterPushReq(token = token))
         Log.d(TAG, "Refreshed token: $token")
