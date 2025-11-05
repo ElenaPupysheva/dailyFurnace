@@ -1,11 +1,20 @@
 package com.alonsonya.dailyfurnace
 
 import android.app.Application
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.SharedPreferences
+import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import com.alonsonya.dailyfurnace.data.FURNACE_PREFERENCES
 import com.alonsonya.dailyfurnace.data.SWITCH_KEY
+import com.alonsonya.dailyfurnace.di.databaseModule
+import com.alonsonya.dailyfurnace.di.networkModule
+import com.alonsonya.dailyfurnace.di.repositoryModule
 import com.alonsonya.dailyfurnace.di.settingsModule
+import com.alonsonya.dailyfurnace.favorite.di.favoriteModule
+import com.alonsonya.dailyfurnace.furnace.di.furnaceModule
 import org.koin.core.context.startKoin
 import org.koin.android.ext.koin.androidContext
 
@@ -13,7 +22,7 @@ class App : Application() {
 
     private lateinit var themePrefs: SharedPreferences
     var darkTheme = false
-
+    private val CHANNEL_FACTS = "facts_channel"
     override fun onCreate() {
         super.onCreate()
         themePrefs = getSharedPreferences(FURNACE_PREFERENCES, MODE_PRIVATE)
@@ -22,7 +31,12 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
-                    settingsModule
+                    furnaceModule,
+                    settingsModule,
+                    favoriteModule,
+                    databaseModule,
+                    networkModule,
+                    repositoryModule
                 )
             )
         }
@@ -47,6 +61,7 @@ class App : Application() {
                 AppCompatDelegate.MODE_NIGHT_NO
             }
         )
+        createNotificationChannel()
     }
 
     fun switchTheme(darkThemeEnabled: Boolean) {
@@ -63,5 +78,19 @@ class App : Application() {
                 AppCompatDelegate.MODE_NIGHT_NO
             }
         )
+    }
+
+    private fun createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val ch = NotificationChannel(
+                CHANNEL_FACTS,
+                "Печь дня",
+                NotificationManager.IMPORTANCE_DEFAULT
+            ).apply {
+                description = "Уведомления с ежедневными фактами"
+            }
+            (getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager)
+                .createNotificationChannel(ch)
+        }
     }
 }

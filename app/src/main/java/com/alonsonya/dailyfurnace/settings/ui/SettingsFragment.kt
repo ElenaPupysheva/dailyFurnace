@@ -51,17 +51,6 @@ class SettingsFragment : Fragment() {
             startActivity(chooser)
         }
 
-        binding.mailSupport.setOnClickListener {
-            val message = getString(R.string.message_text)
-            val theme = getString(R.string.theme_text)
-            val shareIntent = Intent(Intent.ACTION_SENDTO)
-            shareIntent.data = Uri.parse("mailto:")
-            shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.link_mail)))
-            shareIntent.putExtra(Intent.EXTRA_TEXT, message)
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, theme)
-            startActivity(shareIntent)
-        }
-
     }
 
     override fun onDestroyView() {
