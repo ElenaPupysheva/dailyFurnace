@@ -27,6 +27,17 @@
     </fragment>
 
     <fragment
+        android:id="@+id/allFragment"
+        android:name="com.alonsonya.dailyfurnace.allfurnaces.ui.AllFragment"
+        android:label="fragment_all"
+        tools:layout="@layout/fragment_all">
+
+        <action
+            android:id="@+id/action_mediaFragment_to_allFragment"
+            app:destination="@id/allFragment" />
+    </fragment>
+
+    <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.alonsonya.dailyfurnace.favorite.ui.FavoriteFragment"
         android:label="fragment_media"

@@ -30,7 +30,8 @@ class RootActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.furnaceFragment,
                 R.id.favoriteFragment,
-                R.id.settingsFragment -> {
+                R.id.settingsFragment,
+                R.id.allFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
                 else -> {

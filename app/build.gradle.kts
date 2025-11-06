@@ -98,6 +98,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.transport.api)
     implementation(libs.firebase.appdistribution.gradle)
+    implementation(libs.androidx.ui)
     ksp(libs.androidx.room.compiler)
 
     // Networking
@@ -118,4 +119,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+    arg("room.incremental", "true")
+    arg("room.expandProjection", "true")
 }

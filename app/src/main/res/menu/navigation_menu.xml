@@ -9,6 +9,10 @@
         android:icon="@drawable/fireplace"
         android:title="@string/today" />
     <item
+        android:id="@+id/allFragment"
+        android:icon="@drawable/gear"
+        android:title="@string/gallery" />
+    <item
         android:id="@+id/settingsFragment"
         android:icon="@drawable/gear"
         android:title="@string/settings" />
