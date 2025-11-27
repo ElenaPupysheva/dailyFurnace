@@ -3,6 +3,7 @@
 **/build/
 **/out/
 local.properties
+/build
 
 # Android Studio
 *.iml
@@ -24,8 +25,8 @@ captures/
 *.hprof.heap
 
 # Keystores & secrets
-**/*.jks
-**/*.keystore
+*.jks
+*.keystore
 keystore.properties
 app/google-services.json
 
