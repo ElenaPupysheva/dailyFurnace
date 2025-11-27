@@ -35,12 +35,10 @@ class FurnaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1) Грузим как и раньше через стартовый helper ВМ.
         val argId = arguments?.getInt("furnace_id") ?: -1
         Log.d("FurnaceScreen", "arg furnace_id=$argId")
         vm.loadStartup(argId)
 
-        // 2) Наблюдаем стейт и заполняем UI.
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
@@ -53,15 +51,13 @@ class FurnaceFragment : Fragment() {
                             crossfade(true)
                         }
                     }
-                    // подсветка «избранное»
                     binding.addFavorite.isSelected = s.isFavorite
-                    // если есть иконка-кнопка — поддержим ту же подсветку
+
                     runCatching { binding.favoriteButton.isSelected = s.isFavorite }
                 }
             }
         }
 
-        // 3) Клики «в избранное» (оставляю оба, как у тебя).
         binding.addFavorite.setOnClickListener { vm.toggleFavorite() }
         runCatching { binding.favoriteButton.setOnClickListener { vm.toggleFavorite() } }
     }

@@ -30,6 +30,7 @@ class RootActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.furnaceFragment,
                 R.id.favoriteFragment,
+                R.id.collectionFragment,
                 R.id.settingsFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
@@ -41,7 +42,6 @@ class RootActivity : AppCompatActivity() {
         FirebaseMessaging.getInstance().token
             .addOnSuccessListener { t ->
                 Log.d("FCM", "TOKEN=$t")
-                // ВРЕМЕННО: скопируйте токен как удобно (в буфер/текст/Toast)
             }
             .addOnFailureListener { e -> Log.e("FCM", "getToken failed", e) }
     }

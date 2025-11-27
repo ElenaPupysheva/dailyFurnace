@@ -3,6 +3,7 @@
     <string name="today">Печь</string>
     <string name="favorite">Избранное</string>
     <string name="settings">Настройки</string>
+    <string name="collection">Коллекция</string>
     <string name="furnaceTitle">Название печи</string>
     <string name="furnaceInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         Sed tempus imperdiet suscipit. Donec aliquet tempus tortor.
