@@ -4,7 +4,7 @@
 **/out/
 local.properties
 /build
-
+app/build/*
 # Android Studio
 *.iml
 .cxx/
@@ -12,7 +12,7 @@ local.properties
 captures/
 .navigation/
 
-# IDEA project files (оставим только полезное)
+# IDEA project files
 .idea/
 !.idea/codeStyles/
 !.idea/inspectionProfiles/
