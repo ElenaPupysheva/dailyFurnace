@@ -3,8 +3,7 @@
 **/build/
 **/out/
 local.properties
-/build
-app/build/*
+app/schemas/
 # Android Studio
 *.iml
 .cxx/
