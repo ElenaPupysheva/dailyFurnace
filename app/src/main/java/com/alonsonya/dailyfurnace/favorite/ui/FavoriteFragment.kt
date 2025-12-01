@@ -36,7 +36,6 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ВАЖНО: передаём id выбранного продукта в подробный экран
         adapter = FurnaceAdapter { item ->
             findNavController().navigate(
                 R.id.detailedFragment,

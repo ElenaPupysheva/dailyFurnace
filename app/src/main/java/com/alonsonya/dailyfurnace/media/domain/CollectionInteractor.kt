@@ -2,8 +2,9 @@ package com.alonsonya.dailyfurnace.media.domain
 
 import androidx.lifecycle.LiveData
 import com.alonsonya.dailyfurnace.data.Furnace
+import kotlinx.coroutines.flow.Flow
 
 interface CollectionInteractor {
-    fun getFurnace(furnaceId: Int): Furnace
-    fun getFurnaceList(): LiveData<List<Furnace>>
+    suspend fun getFurnace(furnaceId: Int): Furnace
+    suspend fun getFurnaceList(): List<Furnace>
 }

@@ -22,6 +22,4 @@ class CollectionViewHolder(private val binding: ItemFurnaceBinding
 
         binding.furnaceImage.setImageResource(resId)
     }
-
-    companion object
 }

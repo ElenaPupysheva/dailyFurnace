@@ -1,0 +1,25 @@
+package com.alonsonya.dailyfurnace.di
+
+import com.alonsonya.dailyfurnace.data.api.ApiService
+import com.alonsonya.dailyfurnace.data.repo.ProductsRepository
+import com.alonsonya.dailyfurnace.media.data.CollectionRepositoryImpl
+import com.alonsonya.dailyfurnace.media.domain.CollectionInteractor
+import com.alonsonya.dailyfurnace.media.domain.CollectionInteractorImpl
+import com.alonsonya.dailyfurnace.media.domain.CollectionRepository
+import com.alonsonya.dailyfurnace.media.presentation.CollectionViewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
+
+val collectionModule = module {
+    single { ProductsRepository(get<ApiService>()) }
+
+    single<CollectionRepository> { CollectionRepositoryImpl(get()) }
+
+    single<CollectionInteractor> { CollectionInteractorImpl(get()) }
+
+    viewModel {
+        CollectionViewModel(
+            collectionInteractor = get()
+        )
+    }
+}

@@ -8,5 +8,5 @@ interface FavoritesInteractor {
     suspend fun toggle(id: Int): Boolean
     fun isFavoriteFlow(id: Int): Flow<Boolean>
     suspend fun isFavorite(id: Int): Boolean
-    fun observeAllIds(): Flow<List<Int>>
+    fun observeAllIds(): Flow<List<Long>>
 }
