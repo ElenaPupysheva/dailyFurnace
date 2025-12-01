@@ -34,7 +34,7 @@ class FavoritesViewModel(
 
     val state: StateFlow<FavoriteUiState> =
         favIdsFlow
-            .sample(300) // защита от частых триггеров
+            .sample(300)
             .flatMapLatest { ids: Set<Int> ->
                 flow {
                     if (ids.isEmpty()) {

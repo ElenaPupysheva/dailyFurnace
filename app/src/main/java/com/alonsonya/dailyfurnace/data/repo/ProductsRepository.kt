@@ -24,6 +24,11 @@ class ProductsRepository(private val api: ApiService) {
         ids.map { async { api.getProduct(it).normalizeUrl() } }.awaitAll()
     }
 
+    suspend fun getAllProducts(): List<ProductDto> =
+        api.getProducts()
+            .products
+            .map { it.normalizeUrl() }
+
     private fun ProductDto.normalizeUrl(): ProductDto {
         val base = "https://furnace.eln.haswell668.ru"
         return if (!image_url.isNullOrBlank() && !image_url.startsWith("http"))

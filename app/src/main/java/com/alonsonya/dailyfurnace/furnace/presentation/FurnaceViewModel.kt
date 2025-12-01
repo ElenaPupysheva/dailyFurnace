@@ -19,7 +19,6 @@ data class FurnaceUiState(
     val error: String? = null
 )
 
-// FurnaceViewModel.kt
 class FurnaceViewModel(
     private val products: ProductsRepository,
     private val favorites: FavoritesRepository
@@ -40,7 +39,7 @@ class FurnaceViewModel(
                 runCatching { products.getFirstProductOrNull() }
                     .onSuccess { first ->
                         if (first != null) {
-                            loadById(first.id) // переиспользуем основную ветку
+                            loadById(first.id)
                         } else {
                             _state.update { it.copy(loading = false, error = "Пустой список продуктов") }
                         }

@@ -3,7 +3,7 @@
 **/build/
 **/out/
 local.properties
-
+app/schemas/
 # Android Studio
 *.iml
 .cxx/
@@ -11,7 +11,7 @@ local.properties
 captures/
 .navigation/
 
-# IDEA project files (оставим только полезное)
+# IDEA project files
 .idea/
 !.idea/codeStyles/
 !.idea/inspectionProfiles/
@@ -24,8 +24,8 @@ captures/
 *.hprof.heap
 
 # Keystores & secrets
-**/*.jks
-**/*.keystore
+*.jks
+*.keystore
 keystore.properties
 app/google-services.json
 
