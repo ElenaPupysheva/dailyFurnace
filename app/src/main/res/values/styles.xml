@@ -14,4 +14,9 @@
         <item name="android:includeFontPadding">false</item>
     </style>
 
+    <style name="RoundedImageStyle" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/small_icon_pad</item>
+    </style>
+
 </resources>
