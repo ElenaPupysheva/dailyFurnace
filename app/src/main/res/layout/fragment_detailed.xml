@@ -21,6 +21,7 @@
             app:iconGravity="textStart"
             app:navigationIcon="@drawable/back"
             app:title="@string/details"
+            android:fontFamily="@font/dehinted_razerf5_bold"
             app:titleTextColor="@color/light_mode_txt" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
+            android:fontFamily="@font/dehinted_razerf5_regular"
             android:text="@string/furnaceTitle"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />
@@ -39,8 +41,8 @@
             android:layout_height="256dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/today"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/fireplace" />
+            android:scaleType="center"
+            app:srcCompat="@drawable/fire" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/furnaceInfo"
@@ -48,6 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
+            android:fontFamily="@font/dehinted_razerf5_regular"
+            android:textAlignment="center"
             android:text="@string/furnaceInfo"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />

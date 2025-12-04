@@ -5,21 +5,27 @@ import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.databinding.ItemCollectionBinding
 
-class CollectionViewHolder(private val binding: ItemCollectionBinding
+class CollectionViewHolder(
+    private val binding: ItemCollectionBinding
 ) : RecyclerView.ViewHolder(binding.root) {
+
     fun bind(furnace: Furnace) {
         binding.furnaceName.text = furnace.furnaceName
 
-        val resId = if (furnace.imageRes != null) {
-            binding.root.context.resources.getIdentifier(
-                furnace.imageRes,
+        val context = binding.root.context
+        val resName = furnace.imageRes
+
+        val resolvedResId = if (!resName.isNullOrEmpty()) {
+            val foundId = context.resources.getIdentifier(
+                resName,
                 "drawable",
-                binding.root.context.packageName
+                context.packageName
             )
+            if (foundId != 0) foundId else R.drawable.fire
         } else {
-            R.drawable.fireplace
+            R.drawable.fire
         }
 
-        binding.furnaceImage.setImageResource(resId)
+        binding.furnaceImage.setImageResource(resolvedResId)
     }
 }

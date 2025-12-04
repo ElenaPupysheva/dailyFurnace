@@ -19,10 +19,12 @@
         android:textFontWeight="400"/>
 
     <LinearLayout
+        android:id="@+id/furnaceCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/furnaceTitle"
@@ -33,8 +35,8 @@
             android:fontFamily="@font/dehinted_razerf5_bold"
             android:text="@string/furnaceTitle"
             android:textColor="@color/light_mode_txt"
-            android:textFontWeight="400"
-            android:textSize="@dimen/size_24sp" />
+            android:textFontWeight="200"
+            android:textSize="@dimen/size_18sp" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/furnaceImage"

@@ -21,13 +21,13 @@
             android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_gravity="center"
-            android:scaleType="centerCrop"
+            android:scaleType="center"
             app:shapeAppearanceOverlay="@style/RoundedImageStyle"
             app:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintDimensionRatio="1:1"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/fireplace" />
+            android:src="@drawable/fire" />
 
         <TextView
             android:id="@+id/furnace_name"

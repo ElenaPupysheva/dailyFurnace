@@ -19,7 +19,7 @@ class FavoriteViewHolder(
                 binding.root.context.packageName
             )
         } else {
-            R.drawable.fireplace
+            R.drawable.fire
         }
 
         binding.furnaceImage.setImageResource(resId)

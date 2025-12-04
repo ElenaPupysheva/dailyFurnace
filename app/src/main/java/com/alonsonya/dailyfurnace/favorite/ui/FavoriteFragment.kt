@@ -36,12 +36,17 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = FurnaceAdapter { item ->
-            findNavController().navigate(
-                R.id.detailedFragment,
-                bundleOf("product_id" to item.id)
-            )
-        }
+        adapter = FurnaceAdapter(
+            onClick = { item ->
+                findNavController().navigate(
+                    R.id.detailedFragment,
+                    bundleOf("product_id" to item.id)
+                )
+            },
+            onHeartClick = { item ->
+                vm.removeFromFavorites(item.id)
+            }
+        )
 
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.favoritesRecyclerView.adapter = adapter
@@ -50,9 +55,11 @@ class FavoriteFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
                     adapter.submitList(s.items)
+
                 }
             }
         }
+
     }
 
     override fun onDestroyView() {
