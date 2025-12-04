@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">dailyFurnace</string>
+    <string name="app_name">Печь дня</string>
     <string name="today">Печь</string>
     <string name="favorite">Избранное</string>
     <string name="settings">Настройки</string>

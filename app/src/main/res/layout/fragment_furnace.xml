@@ -36,7 +36,9 @@
             android:text="@string/furnaceTitle"
             android:textColor="@color/light_mode_txt"
             android:textFontWeight="200"
-            android:textSize="@dimen/size_18sp" />
+            android:textSize="@dimen/size_18sp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/furnaceImage"
