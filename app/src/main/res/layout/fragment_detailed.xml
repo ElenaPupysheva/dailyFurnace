@@ -52,7 +52,6 @@
             android:layout_margin="16dp"
             android:fontFamily="@font/dehinted_razerf5_regular"
             android:textAlignment="center"
-            android:text="@string/furnaceInfo"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />
 
