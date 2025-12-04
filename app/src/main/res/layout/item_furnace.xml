@@ -26,6 +26,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/dehinted_razerf5_bold"
             android:text="Название печи"
+            android:textColor="@color/light_mode_txt"
             android:textSize="16sp" />
 
     </LinearLayout>

@@ -6,4 +6,5 @@
     <color name="background_color">#e0e1dd</color>
     <color name="light_mode_txt">#212529</color>
     <color name="controlActivated">#c9560c</color>
+    <color name="card_color">#ffffff</color>
 </resources>
