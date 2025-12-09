@@ -12,6 +12,12 @@
     <style name="BottomNavText">
         <item name="android:textSize">12sp</item>
         <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/dehinted_razerf5_regular</item>
+    </style>
+
+    <style name="RoundedImageStyle" parent="Widget.MaterialComponents.ShapeableImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/small_icon_pad</item>
     </style>
 
 </resources>

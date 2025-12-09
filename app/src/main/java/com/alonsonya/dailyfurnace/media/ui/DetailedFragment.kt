@@ -48,8 +48,8 @@ class DetailedFragment : Fragment() {
                         binding.furnaceTitle.text = p.name
                         binding.furnaceInfo.text = p.description.orEmpty()
                         binding.furnaceImage.load(p.image_url) {
-                            placeholder(R.drawable.fireplace)
-                            error(R.drawable.fireplace)
+                            placeholder(R.drawable.fire)
+                            error(R.drawable.fire)
                             crossfade(true)
                         }
                     }

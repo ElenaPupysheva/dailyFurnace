@@ -7,54 +7,79 @@
     android:background="@color/background_color">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/furnaceTitle"
+        android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="@dimen/size_16dp"
-        android:text="@string/furnaceTitle"
+        android:text="Печь дня сегодня"
         android:textColor="@color/light_mode_txt"
-        android:textSize="@dimen/size_16sp" />
+        android:textSize="@dimen/size_24sp"
+        android:fontFamily="@font/dehinted_razerf5_bold"
+        android:textFontWeight="400"/>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/furnaceImage"
-        android:layout_width="256dp"
-        android:layout_height="256dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/today"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/fireplace" />
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/furnaceInfo"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/furnaceCard"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="16dp"
-        android:fontWeight="400"
-        android:text="@string/furnaceInfo"
-        android:textColor="@color/light_mode_txt"
-        android:textSize="@dimen/size_16sp" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="8dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/furnaceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/size_16dp"
+            android:fontFamily="@font/dehinted_razerf5_bold"
+            android:text="@string/furnaceTitle"
+            android:textColor="@color/light_mode_txt"
+            android:textFontWeight="200"
+            android:textSize="@dimen/size_18sp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/furnaceImage"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/today"
+            android:scaleType="center"
+            app:srcCompat="@drawable/fire" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/furnaceInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:fontFamily="@font/dehinted_razerf5_regular"
+            android:fontWeight="400"
+            android:textAlignment="center"
+            android:textColor="@color/light_mode_txt"
+            android:textSize="@dimen/size_16sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/favoriteButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/heart_plus" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/addFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="13dp"
+        android:layout_margin="8dp"
         android:fontWeight="400"
         android:text="@string/add_favorite"
         android:textColor="@color/light_mode_txt"
-        android:textSize="@dimen/size_16sp" />
-
-    <ImageButton
-        android:id="@+id/favoriteButton"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:layout_gravity="center_horizontal"
-        android:contentDescription="@string/favorite"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/heart" />
+        android:fontFamily="@font/dehinted_razerf5_thin"
+        android:textSize="@dimen/size_14sp" />
 
 </LinearLayout>

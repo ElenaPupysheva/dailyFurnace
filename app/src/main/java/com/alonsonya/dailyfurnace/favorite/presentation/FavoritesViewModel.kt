@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.sample
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
 data class FavoriteUiItem(val id: Int, val name: String, val imageUrl: String?)
 data class FavoriteUiState(
@@ -64,4 +65,10 @@ class FavoritesViewModel(
                 SharingStarted.WhileSubscribed(5_000),
                 FavoriteUiState()
             )
+
+    fun removeFromFavorites(id: Int) {
+        viewModelScope.launch {
+            favorites.remove(id)
+        }
+    }
 }

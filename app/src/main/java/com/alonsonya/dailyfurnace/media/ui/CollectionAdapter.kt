@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alonsonya.dailyfurnace.data.Furnace
-import com.alonsonya.dailyfurnace.databinding.ItemFurnaceBinding
+import com.alonsonya.dailyfurnace.databinding.ItemCollectionBinding
 import com.alonsonya.dailyfurnace.media.presentation.CollectionViewHolder
 
 class CollectionAdapter(
@@ -21,7 +21,7 @@ class CollectionAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemFurnaceBinding.inflate(inflater, parent, false)
+        val binding = ItemCollectionBinding.inflate(inflater, parent, false)
         return CollectionViewHolder(binding)
     }
 

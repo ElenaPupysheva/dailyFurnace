@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.databinding.FragmentFurnaceBinding
@@ -46,9 +48,15 @@ class FurnaceFragment : Fragment() {
                         binding.furnaceTitle.text = p.name
                         binding.furnaceInfo.text = p.description.orEmpty()
                         binding.furnaceImage.load(p.image_url) {
-                            placeholder(R.drawable.fireplace)
-                            error(R.drawable.fireplace)
+                            placeholder(R.drawable.fire)
+                            error(R.drawable.fire)
                             crossfade(true)
+                        }
+                        binding.furnaceCard.setOnClickListener {
+                            findNavController().navigate(
+                                R.id.detailedFragment,
+                                bundleOf("product_id" to p.id)
+                            )
                         }
                     }
                     binding.addFavorite.isSelected = s.isFavorite
