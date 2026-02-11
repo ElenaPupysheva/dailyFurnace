@@ -44,23 +44,25 @@ class FurnaceFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
-                    s.product?.let { p ->
-                        binding.furnaceTitle.text = p.name
-                        binding.furnaceInfo.text = p.description.orEmpty()
-                        binding.furnaceImage.load(p.image_url) {
+                    s.furnace?.let { f ->
+                        binding.furnaceTitle.text = f.title
+                        binding.furnaceInfo.text = f.shortDescription
+
+                        binding.furnaceImage.load(f.imageUrl ?: f.thumbnailUrl) {
                             placeholder(R.drawable.fire)
-                            error(R.drawable.fire)
+                            error(R.drawable.error)
                             crossfade(true)
                         }
+
                         binding.furnaceCard.setOnClickListener {
                             findNavController().navigate(
                                 R.id.detailedFragment,
-                                bundleOf("product_id" to p.id)
+                                bundleOf("furnace_id" to f.id)
                             )
                         }
                     }
-                    binding.addFavorite.isSelected = s.isFavorite
 
+                    binding.addFavorite.isSelected = s.isFavorite
                     runCatching { binding.favoriteButton.isSelected = s.isFavorite }
                 }
             }

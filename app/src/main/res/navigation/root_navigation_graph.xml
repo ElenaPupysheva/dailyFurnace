@@ -53,7 +53,7 @@
         tools:layout="@layout/fragment_detailed">
 
         <argument
-            android:name="product_id"
+            android:name="furnace_id"
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>

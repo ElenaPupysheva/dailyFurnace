@@ -68,7 +68,7 @@ class CollectionFragment : Fragment() {
         val productId = furnace.furnaceId.toInt()
         findNavController().navigate(
             R.id.detailedFragment,
-            bundleOf("product_id" to productId)
+            bundleOf("furnace_id" to productId)
         )
     }
 

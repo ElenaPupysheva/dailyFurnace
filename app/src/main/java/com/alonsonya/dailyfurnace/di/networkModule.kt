@@ -12,10 +12,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val BASE_URL = "https://furnace.eln.haswell668.ru/api/"
+private const val BASE_URL = "http://149.154.71.181:6060/api/"
 val networkModule = module {
     single {
-        Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
+        Moshi.Builder()
+            .addLast(KotlinJsonAdapterFactory())
+            .build()
     }
     single {
         val logging = HttpLoggingInterceptor().apply {
@@ -23,8 +25,6 @@ val networkModule = module {
             else HttpLoggingInterceptor.Level.NONE
         }
         OkHttpClient.Builder()
-            .followRedirects(false)
-            .followSslRedirects(true)
             .connectTimeout(20, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)

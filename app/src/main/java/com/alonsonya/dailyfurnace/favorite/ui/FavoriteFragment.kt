@@ -40,7 +40,7 @@ class FavoriteFragment : Fragment() {
             onClick = { item ->
                 findNavController().navigate(
                     R.id.detailedFragment,
-                    bundleOf("product_id" to item.id)
+                    bundleOf("furnace_id" to item.id)
                 )
             },
             onHeartClick = { item ->
