@@ -1,5 +1,6 @@
 package com.alonsonya.dailyfurnace.data
 
+import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
@@ -21,6 +22,23 @@ data class ProductDto(
 )
 
 @JsonClass(generateAdapter = true)
+data class FurnaceDto(
+    val id: Int,
+    val title: String,
+    val shortDescription: String,
+    val fullDescription: String,
+    val imageUrl: String?,
+    @Json(name = "tumbnaillUrl")
+    val thumbnailUrl: String?
+)
+
+@JsonClass(generateAdapter = true)
+data class FurnacesResponse(
+    val furnaces: List<FurnaceDto>
+)
+
+@JsonClass(generateAdapter = true)
 data class ProductsResponse(
     val products: List<ProductDto>,
-    val total: Int)
+    val total: Int
+)

@@ -34,7 +34,7 @@ class DetailedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = arguments?.getInt("product_id") ?: -1
+        val id = arguments?.getInt("furnace_id") ?: -1
         if (id != -1) vm.loadById(id)
 
         binding.toolbarDetailed.setNavigationOnClickListener {
@@ -44,12 +44,12 @@ class DetailedFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
-                    s.product?.let { p ->
-                        binding.furnaceTitle.text = p.name
-                        binding.furnaceInfo.text = p.description.orEmpty()
-                        binding.furnaceImage.load(p.image_url) {
+                    s.furnace?.let { f ->
+                        binding.furnaceTitle.text = f.title
+                        binding.furnaceInfo.text = f.fullDescription
+                        binding.furnaceImage.load(f.imageUrl ?: f.thumbnailUrl) {
                             placeholder(R.drawable.fire)
-                            error(R.drawable.fire)
+                            error(R.drawable.error)
                             crossfade(true)
                         }
                     }
