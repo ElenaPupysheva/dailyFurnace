@@ -11,8 +11,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.alonsonya.dailyfurnace.R
-import com.alonsonya.dailyfurnace.data.Furnace
+import com.alonsonya.dailyfurnace.data.FurnaceItem
 import com.alonsonya.dailyfurnace.databinding.FragmentCollectionBinding
 import com.alonsonya.dailyfurnace.media.presentation.CollectionViewModel
 import kotlinx.coroutines.launch
@@ -41,13 +43,27 @@ class CollectionFragment : Fragment() {
 
         setupRecycler()
         observeState()
+        viewModel.loadFirstPage()
     }
 
     private fun setupRecycler() {
-        adapter = CollectionAdapter { furnace ->
-            onFurnaceClick(furnace)
+        adapter = CollectionAdapter { item ->
+            onFurnaceClick(item)
         }
         binding.collectionRecyclerView.adapter = adapter
+
+        val lm = binding.collectionRecyclerView.layoutManager as GridLayoutManager
+        binding.collectionRecyclerView.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
+            override fun onScrolled(rv: RecyclerView, dx: Int, dy: Int) {
+                if (dy <= 0) return
+                val total = lm.itemCount
+                val lastVisible = lm.findLastVisibleItemPosition()
+                if (total > 0 && lastVisible >= total - 6) {
+                    viewModel.loadNextPage()
+                }
+            }
+        })
     }
 
     private fun observeState() {
@@ -55,7 +71,6 @@ class CollectionFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { state ->
                     adapter.submitList(state.items)
-
                     state.error?.let { msg ->
                         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                     }
@@ -64,11 +79,10 @@ class CollectionFragment : Fragment() {
         }
     }
 
-    private fun onFurnaceClick(furnace: Furnace) {
-        val productId = furnace.furnaceId.toInt()
+    private fun onFurnaceClick(item: FurnaceItem) {
         findNavController().navigate(
             R.id.detailedFragment,
-            bundleOf("furnace_id" to productId)
+            bundleOf("furnace_id" to item.id)
         )
     }
 
