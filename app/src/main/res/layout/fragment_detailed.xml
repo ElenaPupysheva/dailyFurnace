@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="@dimen/size_14dp"
             android:fontFamily="@font/dehinted_razerf5_regular"
             android:text="@string/furnaceTitle"
             android:textColor="@color/light_mode_txt"

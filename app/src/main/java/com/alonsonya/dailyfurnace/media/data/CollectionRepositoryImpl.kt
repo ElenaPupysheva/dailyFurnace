@@ -2,6 +2,7 @@ package com.alonsonya.dailyfurnace.media.data
 
 import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.data.FurnaceDto
+import com.alonsonya.dailyfurnace.data.FurnaceItem
 import com.alonsonya.dailyfurnace.data.repo.FurnacesRepository
 import com.alonsonya.dailyfurnace.media.domain.CollectionRepository
 
@@ -17,6 +18,13 @@ class CollectionRepositoryImpl(
     override suspend fun getFurnaceList(): List<Furnace> {
         val dtos: List<FurnaceDto> = furnacesRepository.getAllFurnaces()
         return dtos.map { it.toFurnaceListItem() }
+    }
+
+    override suspend fun getFurnacesPage(
+        limit: Int,
+        offset: Int
+    ): List<FurnaceItem> {
+        return furnacesRepository.getFurnacesPage(limit, offset)
     }
 
     private fun FurnaceDto.toFurnaceListItem(): Furnace =

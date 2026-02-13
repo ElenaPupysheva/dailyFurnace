@@ -2,35 +2,40 @@ package com.alonsonya.dailyfurnace.media.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.alonsonya.dailyfurnace.data.Furnace
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import com.alonsonya.dailyfurnace.data.FurnaceItem
 import com.alonsonya.dailyfurnace.databinding.ItemCollectionBinding
 import com.alonsonya.dailyfurnace.media.presentation.CollectionViewHolder
 
-class CollectionAdapter(
-    private val onItemClick: (Furnace) -> Unit
-) : RecyclerView.Adapter<CollectionViewHolder>() {
-
-    private val items = mutableListOf<Furnace>()
-
-    fun submitList(newItems: List<Furnace>) {
-        items.clear()
-        items.addAll(newItems)
-        notifyDataSetChanged()
-    }
+class CollectionAdapter(    private val onItemClick: (FurnaceItem) -> Unit
+) : ListAdapter<FurnaceItem, CollectionViewHolder>(DIFF) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ItemCollectionBinding.inflate(inflater, parent, false)
+        val binding = ItemCollectionBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return CollectionViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
-        val item = items[position]
+        val item = getItem(position)
         holder.bind(item)
         holder.itemView.setOnClickListener { onItemClick(item) }
     }
 
-    override fun getItemCount(): Int = items.size
+    companion object {
+        private val DIFF = object : DiffUtil.ItemCallback<FurnaceItem>() {
+            override fun areItemsTheSame(oldItem: FurnaceItem, newItem: FurnaceItem): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: FurnaceItem, newItem: FurnaceItem): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
 }
 

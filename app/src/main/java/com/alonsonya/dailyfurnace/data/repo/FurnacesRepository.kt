@@ -1,6 +1,8 @@
 package com.alonsonya.dailyfurnace.data.repo
 
+import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.data.FurnaceDto
+import com.alonsonya.dailyfurnace.data.FurnaceItem
 import com.alonsonya.dailyfurnace.data.api.ApiService
 
 class FurnacesRepository(private val api: ApiService) {
@@ -16,6 +18,20 @@ class FurnacesRepository(private val api: ApiService) {
             .furnaces
             .map { it.normalizeUrl() }
 
+    suspend fun getFurnacesPage(limit: Int, offset: Int): List<FurnaceItem> {
+        return api.getFurnaces(limit = limit, offset = offset)
+            .furnaces
+            .map { it.normalizeUrl() }
+            .map { dto ->
+                FurnaceItem(
+                    id = dto.id,
+                    title = dto.title,
+                    shortDescription = dto.shortDescription,
+                    imageUrl = dto.imageUrl,
+                    thumbnailUrl = dto.thumbnailUrl
+                )
+            }
+    }
     private fun FurnaceDto.normalizeUrl(): FurnaceDto {
         val base = "http://149.154.71.181:6060"
 
