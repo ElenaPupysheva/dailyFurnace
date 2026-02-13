@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.alonsonya.dailyfurnace.R
@@ -19,6 +23,22 @@ class RootActivity : AppCompatActivity() {
 
         binding = ActivityRootBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        val initialContainerTop = binding.rootContainer.paddingTop
+        val initialBottomNavBottom = binding.bottomNavigation.paddingBottom
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.rootContainer) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.updatePadding(top = initialContainerTop + bars.top)
+
+            binding.bottomNavigation.updatePadding(bottom = initialBottomNavBottom + bars.bottom)
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(binding.rootContainer)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.rootFragment) as NavHostFragment
@@ -34,6 +54,7 @@ class RootActivity : AppCompatActivity() {
                 R.id.settingsFragment -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }
+
                 else -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }

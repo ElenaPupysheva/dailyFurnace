@@ -25,18 +25,14 @@ object FcmRegistrar {
         val newHash = token.sha256()
         val oldHash = prefs.getString(KEY_LAST_TOKEN_HASH, null)
         if (newHash == oldHash) {
-            // уже регистрировали этот токен
             return
         }
 
-        // отправляем токен на сервер
         tokenApi.register(RegisterPushReq(token = token))
         Log.d(TAG, "Refreshed token: $token")
-        // подписываемся на базовые топики
         runCatching { FirebaseMessaging.getInstance().subscribeToTopic("facts").await() }
         runCatching { FirebaseMessaging.getInstance().subscribeToTopic("all").await() }
 
-        // запоминаем токен
         prefs.edit { putString(KEY_LAST_TOKEN_HASH, newHash) }
     }
 }
