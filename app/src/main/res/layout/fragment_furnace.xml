@@ -68,7 +68,7 @@
         android:layout_height="30dp"
         android:layout_gravity="center"
         android:scaleType="centerCrop"
-        android:src="@drawable/heart_plus" />
+        android:src="@drawable/ic_favorite_selector" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/addFavorite"
