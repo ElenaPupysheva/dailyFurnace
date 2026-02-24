@@ -21,4 +21,5 @@
     <string name="share">Поделиться приложением</string>
     <string name="details">Подробнее</string>
     <string name="remove_favorite">Удалить из избранного</string>
+    <string name="search">Поиск</string>
 </resources>

@@ -8,13 +8,44 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_52dp"
+        android:layout_marginStart="@dimen/size_16dp"
+        android:layout_marginEnd="@dimen/size_16dp"
+        android:padding="@dimen/small_icon_pad">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            style="@style/SearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_36dp"
+            android:autofillHints="no"
+            android:contextClickable="true"
+            android:hint="@string/search"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            android:lines="1"
+            android:maxLines="1"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageView
+            android:id="@+id/clearIcon"
+            android:layout_width="@dimen/size_14dp"
+            android:layout_height="@dimen/size_14dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="@dimen/size_14dp"
+            android:drawablePadding="@dimen/size_2dp"
+            android:src="@drawable/clear_search"
+            android:visibility="gone" />
+    </FrameLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/collectionRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="@dimen/size_16dp"
-        android:layout_marginTop="@dimen/size_16dp"
         android:layout_marginEnd="@dimen/size_16dp"
         android:layout_weight="1"
         android:clipToPadding="false"
