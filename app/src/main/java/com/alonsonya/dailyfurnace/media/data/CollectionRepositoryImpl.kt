@@ -27,6 +27,10 @@ class CollectionRepositoryImpl(
         return furnacesRepository.getFurnacesPage(limit, offset)
     }
 
+    override suspend fun searchFurnaces(query: String, limit: Int, offset: Int): List<FurnaceItem> {
+        return furnacesRepository.searchFurnacesPage(query, limit, offset)
+    }
+
     private fun FurnaceDto.toFurnaceListItem(): Furnace =
         Furnace(
             furnaceId = id.toLong(),

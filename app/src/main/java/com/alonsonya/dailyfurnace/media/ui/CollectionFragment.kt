@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -40,7 +41,17 @@ class CollectionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val searchView = binding.collectionSearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.onSearchQueryChanged(query.orEmpty())
+                return true
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.onSearchQueryChanged(newText.orEmpty())
+                return true
+            }
+        })
         setupRecycler()
         observeState()
         viewModel.loadFirstPage()
@@ -60,7 +71,7 @@ class CollectionFragment : Fragment() {
                 val total = lm.itemCount
                 val lastVisible = lm.findLastVisibleItemPosition()
                 if (total > 0 && lastVisible >= total - 6) {
-                    viewModel.loadNextPage()
+                    viewModel.loadNext()
                 }
             }
         })
