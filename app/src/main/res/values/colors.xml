@@ -7,4 +7,5 @@
     <color name="light_mode_txt">#212529</color>
     <color name="controlActivated">#c9560c</color>
     <color name="card_color">#ffffff</color>
+    <color name="button_color">#C2BDB7</color>
 </resources>

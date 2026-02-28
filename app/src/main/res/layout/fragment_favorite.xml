@@ -7,6 +7,19 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearFavButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_16dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/button_color"
+            android:text="@string/clear_favourite"
+            android:textFontWeight="200"
+            android:fontFamily="@font/dehinted_razerf5_regular"
+            android:textColor="@color/light_mode_txt"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favoritesRecyclerView"
             android:layout_width="match_parent"

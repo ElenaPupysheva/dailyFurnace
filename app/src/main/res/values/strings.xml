@@ -23,4 +23,5 @@
     <string name="remove_favorite">Удалить из избранного</string>
     <string name="search">Поиск</string>
     <string name="clear_search">Очистить поиск</string>
+    <string name="clear_favourite">Очистить избранное</string>
 </resources>
