@@ -9,6 +9,7 @@ import retrofit2.http.Query
 interface ApiService {
     @GET("furnaces")
     suspend fun getFurnaces(
+        @Query("q") query: String? = null,
         @Query("limit") limit: Int? = null,
         @Query("offset") offset: Int? = null
     ): FurnacesResponse
