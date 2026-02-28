@@ -51,10 +51,16 @@ class FavoriteFragment : Fragment() {
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.favoritesRecyclerView.adapter = adapter
 
+        binding.clearFavButton.setOnClickListener {
+            vm.clearAllFavorites()
+        }
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
                     adapter.submitList(s.items)
+                    binding.clearFavButton.visibility =
+                        if (s.items.isNotEmpty()) View.VISIBLE else View.GONE
 
                 }
             }

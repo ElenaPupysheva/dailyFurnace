@@ -9,4 +9,5 @@ interface FavoritesRepository {
     fun isFavoriteFlow(id: Int): Flow<Boolean>
     suspend fun isFavorite(id: Int): Boolean
     fun observeAllIds(): Flow<List<Int>>
+    suspend fun clearAll()
 }
