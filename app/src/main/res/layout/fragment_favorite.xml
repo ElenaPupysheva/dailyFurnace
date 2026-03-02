@@ -7,6 +7,20 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/clearFavButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_16dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/button_color"
+            android:text="@string/clear_favourite"
+            android:textFontWeight="500"
+            android:fontFamily="@font/dehinted_razerf5_bold"
+            android:textColor="@color/light_mode_txt"
+            android:textSize="@dimen/size_10sp"
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favoritesRecyclerView"
             android:layout_width="match_parent"
@@ -20,6 +34,7 @@
             android:paddingBottom="64dp"
             tools:itemCount="6"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_furnace" />
+            tools:listitem="@layout/item_furnace"
+            />
 
 </LinearLayout>

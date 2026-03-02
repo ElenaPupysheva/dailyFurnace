@@ -81,4 +81,10 @@ class FavoritesViewModel(
             favorites.remove(id)
         }
     }
+
+    fun clearAllFavorites() {
+        viewModelScope.launch {
+            favorites.clearAll()
+        }
+    }
 }
