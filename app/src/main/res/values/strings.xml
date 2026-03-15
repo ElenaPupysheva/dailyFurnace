@@ -1,15 +1,10 @@
 <resources>
     <string name="app_name">Печь дня</string>
-    <string name="today">Печь</string>
+    <string name="today">Печь дня сегодня</string>
     <string name="favorite">Избранное</string>
     <string name="settings">Настройки</string>
     <string name="collection">Коллекция</string>
     <string name="furnaceTitle">Название печи</string>
-    <string name="furnaceInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed tempus imperdiet suscipit. Donec aliquet tempus tortor.
-        Pellentesque quis arcu scelerisque, dignissim sem a, fermentum quam.
-        Morbi bibendum quam ac metus interdum, sed elementum justo pellentesque.
-        Sed nec ligula quis justo lobortis convallis sed ut diam... </string>
     <string name="add_favorite">Добавить в избранное</string>
     <string name="dark_theme">Темная тема</string>
     <string name="write_support">Написать в поддержку</string>

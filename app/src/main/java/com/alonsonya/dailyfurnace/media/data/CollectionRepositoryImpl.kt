@@ -1,51 +1,45 @@
 package com.alonsonya.dailyfurnace.media.data
 
 import com.alonsonya.dailyfurnace.data.Furnace
-import com.alonsonya.dailyfurnace.data.FurnaceDto
 import com.alonsonya.dailyfurnace.data.FurnaceItem
+import com.alonsonya.dailyfurnace.data.db.dao.FurnaceDao
+import com.alonsonya.dailyfurnace.data.mappers.toDomainDetails
+import com.alonsonya.dailyfurnace.data.mappers.toEntity
+import com.alonsonya.dailyfurnace.data.mappers.toEntityList
+import com.alonsonya.dailyfurnace.data.mappers.toFurnaceItem
 import com.alonsonya.dailyfurnace.data.repo.FurnacesRepository
 import com.alonsonya.dailyfurnace.media.domain.CollectionRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class CollectionRepositoryImpl(
-    private val furnacesRepository: FurnacesRepository
+    private val furnacesRepository: FurnacesRepository,
+    private val furnaceDao: FurnaceDao
 ) : CollectionRepository {
 
-    override suspend fun getFurnace(furnaceId: Int): Furnace {
-        val dto: FurnaceDto = furnacesRepository.getFurnace(furnaceId)
-        return dto.toFurnaceDetails()
+    override fun observeFurnaces(): Flow<List<FurnaceItem>> {
+        return furnaceDao.observeAll()
+            .map { entities -> entities.map { it.toFurnaceItem() } }
     }
 
-    override suspend fun getFurnaceList(): List<Furnace> {
-        val dtos: List<FurnaceDto> = furnacesRepository.getAllFurnaces()
-        return dtos.map { it.toFurnaceListItem() }
+    override fun observeSearch(query: String): Flow<List<FurnaceItem>> {
+        return furnaceDao.observeSearch(query)
+            .map { entities -> entities.map { it.toFurnaceItem() } }
     }
 
-    override suspend fun getFurnacesPage(
-        limit: Int,
-        offset: Int
-    ): List<FurnaceItem> {
-        return furnacesRepository.getFurnacesPage(limit, offset)
+    override fun observeFurnaceDetails(furnaceId: Int): Flow<Furnace?> {
+        return furnaceDao.observeById(furnaceId)
+            .map { entity -> entity?.toDomainDetails() }
     }
 
-    override suspend fun searchFurnaces(query: String, limit: Int, offset: Int): List<FurnaceItem> {
-        return furnacesRepository.searchFurnacesPage(query, limit, offset)
+    override suspend fun syncFurnacesPage(limit: Int, offset: Int): Int {
+        val dtos = furnacesRepository.getAllFurnaces(limit = limit, offset = offset)
+        furnaceDao.insertAll(dtos.toEntityList())
+        return dtos.size
     }
 
-    private fun FurnaceDto.toFurnaceListItem(): Furnace =
-        Furnace(
-            furnaceId = id.toLong(),
-            furnaceName = title,
-            furnaceInfo = shortDescription,
-            furnaceType = "",
-            imageRes = imageUrl ?: thumbnailUrl
-        )
-
-    private fun FurnaceDto.toFurnaceDetails(): Furnace =
-        Furnace(
-            furnaceId = id.toLong(),
-            furnaceName = title,
-            furnaceInfo = fullDescription,
-            furnaceType = "",
-            imageRes = imageUrl ?: thumbnailUrl
-        )
+    override suspend fun syncFurnaceDetails(furnaceId: Int) {
+        val dto = furnacesRepository.getFurnace(furnaceId)
+        furnaceDao.insert(dto.toEntity())
+    }
 }

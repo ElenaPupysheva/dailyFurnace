@@ -10,9 +10,16 @@ import org.koin.dsl.module
 
 val collectionModule = module {
 
-    single<CollectionRepository> { CollectionRepositoryImpl(get()) }
+    single<CollectionRepository> {
+        CollectionRepositoryImpl(
+            furnacesRepository = get(),
+            furnaceDao = get()
+        )
+    }
 
-    single<CollectionInteractor> { CollectionInteractorImpl(get()) }
+    single<CollectionInteractor> {
+        CollectionInteractorImpl(get())
+    }
 
     viewModel {
         CollectionViewModel(
