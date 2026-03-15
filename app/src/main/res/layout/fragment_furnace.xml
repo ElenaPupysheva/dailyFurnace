@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
-        android:text="Печь дня сегодня"
+        android:text="@string/today"
         android:textColor="@color/light_mode_txt"
         android:textSize="@dimen/size_24sp"
         android:fontFamily="@font/dehinted_razerf5_bold"
@@ -42,11 +42,12 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/furnaceImage"
-            android:layout_width="230dp"
-            android:layout_height="230dp"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
             android:layout_gravity="center_horizontal"
             android:contentDescription="@string/today"
-            android:scaleType="center"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             app:srcCompat="@drawable/fire" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -67,6 +68,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_gravity="center"
+        android:contentDescription="@string/add_favorite"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_favorite_selector" />
 
@@ -80,6 +82,6 @@
         android:text="@string/add_favorite"
         android:textColor="@color/light_mode_txt"
         android:fontFamily="@font/dehinted_razerf5_thin"
-        android:textSize="@dimen/size_14sp" />
+        android:textSize="@dimen/size_16sp" />
 
 </LinearLayout>

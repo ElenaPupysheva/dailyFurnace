@@ -2,27 +2,29 @@ package com.alonsonya.dailyfurnace.media.domain
 
 import com.alonsonya.dailyfurnace.data.Furnace
 import com.alonsonya.dailyfurnace.data.FurnaceItem
+import kotlinx.coroutines.flow.Flow
 
 class CollectionInteractorImpl(
     private val repository: CollectionRepository
 ) : CollectionInteractor {
-    override suspend fun getFurnace(furnaceId: Int): Furnace {
-        return repository.getFurnace(furnaceId)
+
+    override fun observeFurnaces(): Flow<List<FurnaceItem>> {
+        return repository.observeFurnaces()
     }
 
-    override suspend fun getFurnaceList(): List<Furnace> {
-        return repository.getFurnaceList()
+    override fun observeSearch(query: String): Flow<List<FurnaceItem>> {
+        return repository.observeSearch(query)
     }
 
-    override suspend fun getFurnacePage(limit: Int, offset: Int): List<FurnaceItem> {
-        return repository.getFurnacesPage(limit, offset)
+    override fun observeFurnaceDetails(furnaceId: Int): Flow<Furnace?> {
+        return repository.observeFurnaceDetails(furnaceId)
     }
 
-    override suspend fun searchFurnaces(
-        query: String,
-        limit: Int,
-        offset: Int
-    ): List<FurnaceItem> {
-        return repository.searchFurnaces(query, limit, offset)
+    override suspend fun syncFurnacesPage(limit: Int, offset: Int): Int {
+        return repository.syncFurnacesPage(limit, offset)
+    }
+
+    override suspend fun syncFurnaceDetails(furnaceId: Int) {
+        repository.syncFurnaceDetails(furnaceId)
     }
 }

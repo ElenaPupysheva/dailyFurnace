@@ -40,10 +40,14 @@ class DetailedFragment : Fragment() {
         binding.toolbarDetailed.setNavigationOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
+        binding.favoriteButton.setOnClickListener {
+            vm.toggleFavorite()
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
+                    binding.favoriteButton.isSelected = s.isFavorite
                     s.furnace?.let { f ->
                         binding.furnaceTitle.text = f.title
                         binding.furnaceInfo.text = f.fullDescription

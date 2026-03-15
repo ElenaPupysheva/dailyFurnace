@@ -12,8 +12,9 @@ val databaseModule = module {
             AppDatabase::class.java,
             "daily_furnace.db"
         )
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration(false)
             .build()
     }
+    single { get<AppDatabase>().furnaceDao() }
     single { get<AppDatabase>().favoriteFurnaceDao() }
 }

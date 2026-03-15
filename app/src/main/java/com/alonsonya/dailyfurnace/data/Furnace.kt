@@ -6,5 +6,5 @@ data class Furnace(
     val furnaceInfo: String,
     val furnaceType: String,
     val imageRes: String?,
-    var isFavorite: Boolean = false
+    val isFavorite: Boolean = false
 )
