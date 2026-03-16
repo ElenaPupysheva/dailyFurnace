@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_color"
+    android:paddingBottom="16dp"
     tools:context=".media.ui.DetailedFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,26 +21,51 @@
             app:iconGravity="textStart"
             app:navigationIcon="@drawable/back"
             app:title="@string/details"
+            android:fontFamily="@font/dehinted_razerf5_bold"
             app:titleTextColor="@color/light_mode_txt" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/furnaceTitle"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
-            android:text="@string/furnaceTitle"
-            android:textColor="@color/light_mode_txt"
-            android:textSize="@dimen/size_16sp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/furnaceTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dehinted_razerf5_bold"
+                android:text="@string/furnaceTitle"
+                android:textColor="@color/light_mode_txt"
+                android:textSize="@dimen/size_16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <ImageView
+                android:id="@+id/favoriteButton"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="@string/add_favorite"
+                android:src="@drawable/ic_favorite_selector"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/furnaceImage"
-            android:layout_width="256dp"
-            android:layout_height="256dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="12dp"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/today"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/fireplace" />
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/fire" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/furnaceInfo"
@@ -48,9 +73,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:text="@string/furnaceInfo"
+            android:layout_marginBottom="@dimen/size_16dp"
+            android:fontFamily="@font/dehinted_razerf5_regular"
+            android:textAlignment="center"
             android:textColor="@color/light_mode_txt"
             android:textSize="@dimen/size_16sp" />
-
     </LinearLayout>
 </ScrollView>

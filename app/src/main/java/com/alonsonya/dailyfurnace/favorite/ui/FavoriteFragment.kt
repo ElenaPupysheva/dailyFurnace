@@ -36,24 +36,36 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // ВАЖНО: передаём id выбранного продукта в подробный экран
-        adapter = FurnaceAdapter { item ->
-            findNavController().navigate(
-                R.id.detailedFragment,
-                bundleOf("product_id" to item.id)
-            )
-        }
+        adapter = FurnaceAdapter(
+            onClick = { item ->
+                findNavController().navigate(
+                    R.id.detailedFragment,
+                    bundleOf("furnace_id" to item.id)
+                )
+            },
+            onHeartClick = { item ->
+                vm.removeFromFavorites(item.id)
+            }
+        )
 
         binding.favoritesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.favoritesRecyclerView.adapter = adapter
+
+        binding.clearFavButton.setOnClickListener {
+            vm.clearAllFavorites()
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
                     adapter.submitList(s.items)
+                    binding.clearFavButton.visibility =
+                        if (s.items.isNotEmpty()) View.VISIBLE else View.GONE
+
                 }
             }
         }
+
     }
 
     override fun onDestroyView() {

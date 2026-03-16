@@ -20,10 +20,13 @@
             android:id="@+id/action_furnaceFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
 
-        <!-- (опционально) можно и тут объявить переход к деталям -->
         <action
             android:id="@+id/action_furnaceFragment_to_detailedFragment"
             app:destination="@id/detailedFragment" />
+
+        <action
+            android:id="@+id/action_furnaceFragment_to_collectionFragment"
+            app:destination="@id/collectionFragment" />
     </fragment>
 
     <fragment
@@ -49,10 +52,16 @@
         android:label="fragment_detailed"
         tools:layout="@layout/fragment_detailed">
 
-        <!-- ВОТ ЭТО ГЛАВНОЕ: аргумент, который ты передаёшь -->
         <argument
-            android:name="product_id"
+            android:name="furnace_id"
             app:argType="integer"
             android:defaultValue="-1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/collectionFragment"
+        android:name="com.alonsonya.dailyfurnace.media.ui.CollectionFragment"
+        android:label="fragment_collection"
+        tools:layout="@layout/fragment_collection">
     </fragment>
 </navigation>

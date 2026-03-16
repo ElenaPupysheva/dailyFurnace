@@ -12,7 +12,8 @@ import com.alonsonya.dailyfurnace.databinding.ItemFurnaceBinding
 import com.alonsonya.dailyfurnace.favorite.presentation.FavoriteUiItem
 
 class FurnaceAdapter(
-    private val onClick: (FavoriteUiItem) -> Unit
+    private val onClick: (FavoriteUiItem) -> Unit,
+    private val onHeartClick: (FavoriteUiItem) -> Unit
 ) : ListAdapter<FavoriteUiItem, FurnaceAdapter.VH>(Diff) {
 
     object Diff : DiffUtil.ItemCallback<FavoriteUiItem>() {
@@ -24,11 +25,13 @@ class FurnaceAdapter(
         fun bind(item: FavoriteUiItem) = with(binding) {
             furnaceName.text = item.name
             furnaceImage.load(item.imageUrl) {
-                placeholder(R.drawable.fireplace)
-                error(R.drawable.fireplace)
+                placeholder(R.drawable.fire)
+                error(R.drawable.fire)
                 crossfade(true)
             }
+
             root.setOnClickListener { onClick(item) }
+            heartMinus.setOnClickListener { onHeartClick(item) }
         }
     }
 
@@ -41,3 +44,4 @@ class FurnaceAdapter(
         holder.bind(getItem(position))
     }
 }
+

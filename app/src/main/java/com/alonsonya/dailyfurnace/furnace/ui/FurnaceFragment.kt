@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.alonsonya.dailyfurnace.R
 import com.alonsonya.dailyfurnace.databinding.FragmentFurnaceBinding
@@ -35,33 +37,37 @@ class FurnaceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1) Грузим как и раньше через стартовый helper ВМ.
         val argId = arguments?.getInt("furnace_id") ?: -1
         Log.d("FurnaceScreen", "arg furnace_id=$argId")
         vm.loadStartup(argId)
 
-        // 2) Наблюдаем стейт и заполняем UI.
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 vm.state.collect { s ->
-                    s.product?.let { p ->
-                        binding.furnaceTitle.text = p.name
-                        binding.furnaceInfo.text = p.description.orEmpty()
-                        binding.furnaceImage.load(p.image_url) {
-                            placeholder(R.drawable.fireplace)
-                            error(R.drawable.fireplace)
+                    s.furnace?.let { f ->
+                        binding.furnaceTitle.text = f.title
+                        binding.furnaceInfo.text = f.shortDescription
+
+                        binding.furnaceImage.load(f.imageUrl ?: f.thumbnailUrl) {
+                            placeholder(R.drawable.fire)
+                            error(R.drawable.error)
                             crossfade(true)
                         }
+
+                        binding.furnaceCard.setOnClickListener {
+                            findNavController().navigate(
+                                R.id.detailedFragment,
+                                bundleOf("furnace_id" to f.id)
+                            )
+                        }
                     }
-                    // подсветка «избранное»
+
                     binding.addFavorite.isSelected = s.isFavorite
-                    // если есть иконка-кнопка — поддержим ту же подсветку
                     runCatching { binding.favoriteButton.isSelected = s.isFavorite }
                 }
             }
         }
 
-        // 3) Клики «в избранное» (оставляю оба, как у тебя).
         binding.addFavorite.setOnClickListener { vm.toggleFavorite() }
         runCatching { binding.favoriteButton.setOnClickListener { vm.toggleFavorite() } }
     }

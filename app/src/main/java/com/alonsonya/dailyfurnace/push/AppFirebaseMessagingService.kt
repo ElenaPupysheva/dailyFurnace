@@ -49,11 +49,17 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
-        val data = message.data
-        val title = data["title"] ?: getString(R.string.app_name)
-        val body = data["body"] ?: "Новая печь дня"
-        val furnaceId = data["furnaceId"]?.toIntOrNull() ?: -1
+        Log.d("FCM", "onMessageReceived data=${message.data} notif=${message.notification}")
 
+        val title = message.data["title"]
+            ?: message.notification?.title
+            ?: getString(R.string.app_name)
+
+        val body = message.data["body"]
+            ?: message.notification?.body
+            ?: "Новая печь дня"
+
+        val furnaceId = message.data["furnaceId"]?.toIntOrNull() ?: -1
         val args = Bundle().apply { putInt("furnace_id", furnaceId) }
 
         val pendingIntent = NavDeepLinkBuilder(this)
@@ -63,7 +69,7 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
             .createPendingIntent()
 
         val notification = NotificationCompat.Builder(this, CHANNEL_FACTS)
-            .setSmallIcon(R.drawable.fireplace)
+            .setSmallIcon(R.drawable.fire)
             .setContentTitle(title)
             .setContentText(body)
             .setAutoCancel(true)
@@ -71,13 +77,14 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
             .build()
 
         val canNotify = Build.VERSION.SDK_INT < 33 ||
-                ContextCompat.checkSelfPermission(
-                    this, Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED
+                ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+
+        Log.d("FCM", "canNotify=$canNotify sdk=${Build.VERSION.SDK_INT}")
 
         if (canNotify) {
             NotificationManagerCompat.from(this)
-                .notify(if (furnaceId > 0) furnaceId else 0, notification)
+                .notify(if (furnaceId > 0) furnaceId else 1, notification)
         }
     }
+
 }

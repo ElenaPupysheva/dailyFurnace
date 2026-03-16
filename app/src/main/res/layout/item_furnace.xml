@@ -1,9 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/furnaceListItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:id="@+id/furnaceListItem"
     android:padding="12dp">
 
     <ImageView
@@ -11,7 +10,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/fireplace" />
+        android:src="@drawable/fire" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -25,9 +24,18 @@
             android:id="@+id/furnace_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dehinted_razerf5_bold"
             android:text="Название печи"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/light_mode_txt"
+            android:textSize="16sp" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/heart_minus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/heart_minus" />
 </LinearLayout>

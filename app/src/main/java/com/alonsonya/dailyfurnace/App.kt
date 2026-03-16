@@ -9,6 +9,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import com.alonsonya.dailyfurnace.data.FURNACE_PREFERENCES
 import com.alonsonya.dailyfurnace.data.SWITCH_KEY
+import com.alonsonya.dailyfurnace.di.collectionModule
 import com.alonsonya.dailyfurnace.di.databaseModule
 import com.alonsonya.dailyfurnace.di.networkModule
 import com.alonsonya.dailyfurnace.di.repositoryModule
@@ -33,6 +34,7 @@ class App : Application() {
                 listOf(
                     furnaceModule,
                     settingsModule,
+                    collectionModule,
                     favoriteModule,
                     databaseModule,
                     networkModule,
@@ -93,4 +95,6 @@ class App : Application() {
                 .createNotificationChannel(ch)
         }
     }
+
+
 }

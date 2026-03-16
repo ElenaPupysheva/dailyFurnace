@@ -1,14 +1,10 @@
 <resources>
-    <string name="app_name">dailyFurnace</string>
-    <string name="today">Печь</string>
+    <string name="app_name">Печь дня</string>
+    <string name="today">Печь дня сегодня</string>
     <string name="favorite">Избранное</string>
     <string name="settings">Настройки</string>
+    <string name="collection">Коллекция</string>
     <string name="furnaceTitle">Название печи</string>
-    <string name="furnaceInfo">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed tempus imperdiet suscipit. Donec aliquet tempus tortor.
-        Pellentesque quis arcu scelerisque, dignissim sem a, fermentum quam.
-        Morbi bibendum quam ac metus interdum, sed elementum justo pellentesque.
-        Sed nec ligula quis justo lobortis convallis sed ut diam...More Info  </string>
     <string name="add_favorite">Добавить в избранное</string>
     <string name="dark_theme">Темная тема</string>
     <string name="write_support">Написать в поддержку</string>
@@ -20,4 +16,7 @@
     <string name="share">Поделиться приложением</string>
     <string name="details">Подробнее</string>
     <string name="remove_favorite">Удалить из избранного</string>
+    <string name="search">Поиск</string>
+    <string name="clear_search">Очистить поиск</string>
+    <string name="clear_favourite">Очистить избранное</string>
 </resources>

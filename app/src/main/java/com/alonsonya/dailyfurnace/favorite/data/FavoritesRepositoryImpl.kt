@@ -19,4 +19,7 @@ class FavoritesRepositoryImpl(
     override fun isFavoriteFlow(id: Int): Flow<Boolean> = dao.isFavoriteFlow(id)
     override suspend fun isFavorite(id: Int): Boolean = dao.isFavorite(id)
     override fun observeAllIds(): Flow<List<Int>> = dao.observeAllIds()
+    override suspend fun clearAll() {
+        dao.clearAll()
+    }
 }

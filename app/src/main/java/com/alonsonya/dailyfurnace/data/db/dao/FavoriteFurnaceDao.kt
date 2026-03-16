@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.alonsonya.dailyfurnace.data.db.entity.FavoriteFurnaceEntity
 import kotlinx.coroutines.flow.Flow
+
 @Dao
 interface FavoriteFurnaceDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -13,6 +14,9 @@ interface FavoriteFurnaceDao {
 
     @Query("DELETE FROM favorite_furnaces WHERE furnaceId = :id")
     suspend fun deleteById(id: Int): Int
+
+    @Query("DELETE FROM favorite_furnaces")
+    suspend fun clearAll(): Int
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorite_furnaces WHERE furnaceId = :id)")
     fun isFavoriteFlow(id: Int): Flow<Boolean>
