@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.alonsonya.dailyfurnace.favorite.ui.FavoriteFragment"
+        android:name="com.alonsonya.dailyfurnace.favorite.ui.FavoritesFragment"
         android:label="fragment_media"
         tools:layout="@layout/fragment_favorite">
 
