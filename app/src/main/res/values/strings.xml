@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Печь дня</string>
     <string name="today">Печь дня сегодня</string>
+    <string name="furnaceName">Название печи</string>
     <string name="favorite">Избранное</string>
     <string name="settings">Настройки</string>
     <string name="collection">Коллекция</string>

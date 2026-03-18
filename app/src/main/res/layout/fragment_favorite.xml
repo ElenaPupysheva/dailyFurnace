@@ -9,16 +9,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/clearFavButton"
+            style="@style/styleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/size_16dp"
-            android:backgroundTint="@color/button_color"
-            android:text="@string/clear_favourite"
             android:textColor="@color/light_mode_txt"
-            android:textFontWeight="500"
-            android:fontFamily="@font/dehinted_razerf5_bold"
-            android:textSize="@dimen/size_10sp"
+            android:text="@string/clear_favourite"
             android:visibility="gone" />
 
         <FrameLayout
@@ -34,7 +31,7 @@
                     android:layout_marginTop="@dimen/size_16dp"
                     android:layout_marginEnd="@dimen/size_16dp"
                     android:clipToPadding="false"
-                    android:paddingBottom="64dp"
+                    android:paddingBottom="@dimen/size_64dp"
                     android:visibility="gone"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="6"
@@ -46,13 +43,13 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="24dp"
+                    android:padding="@dimen/size_24dp"
                     android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/placeholderImage"
-                            android:layout_width="260dp"
-                            android:layout_height="130dp"
+                            android:layout_width="@dimen/size_260dp"
+                            android:layout_height="@dimen/size_130dp"
                             android:contentDescription="@string/error_placeholder"
                             android:scaleType="centerCrop"
                             android:src="@drawable/error" />
@@ -61,7 +58,7 @@
                             android:id="@+id/placeholderText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
+                            android:layout_marginTop="@dimen/size_16dp"
                             android:fontFamily="@font/dehinted_razerf5_regular"
                             android:text="@string/error"
                             android:textAlignment="center"
