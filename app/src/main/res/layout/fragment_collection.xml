@@ -8,12 +8,13 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/collectionSearchView"
         style="@style/SearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_16dp"
+        android:theme="@style/SearchViewOverlay"
         app:queryHint="@string/search" />
 
     <FrameLayout
