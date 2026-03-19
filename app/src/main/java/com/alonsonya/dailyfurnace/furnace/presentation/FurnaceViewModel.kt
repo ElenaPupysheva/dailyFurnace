@@ -2,6 +2,7 @@ package com.alonsonya.dailyfurnace.furnace.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alonsonya.dailyfurnace.AppError
 import com.alonsonya.dailyfurnace.data.FurnaceDto
 import com.alonsonya.dailyfurnace.data.repo.FurnacesRepository
 import com.alonsonya.dailyfurnace.favorite.domain.FavoritesRepository
@@ -10,12 +11,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 data class FurnaceUiState(
     val loading: Boolean = false,
     val furnace: FurnaceDto? = null,
     val isFavorite: Boolean = false,
-    val error: String? = null
+    val error: AppError? = null
 )
 
 class FurnaceViewModel(
@@ -45,7 +50,8 @@ class FurnaceViewModel(
                         _state.update {
                             it.copy(
                                 loading = false,
-                                error = e.message ?: "Network error"
+                                furnace = null,
+                                error = mapError(e)
                             )
                         }
                     }
@@ -65,7 +71,13 @@ class FurnaceViewModel(
                     observeFavorite(id)
                 }
                 .onFailure { e ->
-                    _state.update { it.copy(loading = false, error = e.message ?: "Network error") }
+                    _state.update {
+                        it.copy(
+                            loading = false,
+                            furnace = null,
+                            error = mapError(e)
+                        )
+                    }
                 }
         }
     }
@@ -82,5 +94,32 @@ class FurnaceViewModel(
     fun toggleFavorite() {
         val id = currentId ?: return
         viewModelScope.launch { favorites.toggle(id) }
+    }
+
+    fun retry() {
+        val id = currentId
+        if (id != null) {
+            loadById(id)
+        } else {
+            loadStartup(-1)
+        }
+    }
+
+    private fun mapError(throwable: Throwable): AppError {
+        return when (throwable) {
+            is UnknownHostException,
+            is SocketTimeoutException,
+            is IOException -> AppError.NoInternet
+
+            is HttpException -> {
+                when (throwable.code()) {
+                    404 -> AppError.NotFound
+                    500, 502, 503, 504 -> AppError.Server
+                    else -> AppError.Unknown
+                }
+            }
+
+            else -> AppError.Unknown
+        }
     }
 }

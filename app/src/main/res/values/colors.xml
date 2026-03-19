@@ -8,4 +8,7 @@
     <color name="controlActivated">#c9560c</color>
     <color name="card_color">#ffffff</color>
     <color name="button_color">#C2BDB7</color>
+    <color name="search_text_color">#1A1B22</color>
+    <color name="search_hint_color">#8A8A8A</color>
+    <color name="search_icon_color">#8A8A8A</color>
 </resources>

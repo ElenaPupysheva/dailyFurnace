@@ -13,4 +13,16 @@
         <item name="android:textSize">12sp</item>
         <item name="android:includeFontPadding">false</item>
     </style>
+
+    <style name="SearchBar" parent="Widget.AppCompat.SearchView">
+        <item name="queryBackground">@drawable/search_rounded</item>
+        <item name="iconifiedByDefault">false</item>
+    </style>
+
+    <style name="SearchViewOverlay" parent="ThemeOverlay.AppCompat">
+        <item name="android:textColorPrimary">@color/search_text_color</item>
+        <item name="android:textColorHint">@color/search_hint_color</item>
+        <item name="colorControlNormal">@color/search_icon_color</item>
+    </style>
+
 </resources>

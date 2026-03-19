@@ -8,27 +8,78 @@
     android:background="@color/background_color"
     android:orientation="vertical">
 
-    <SearchView
+    <androidx.appcompat.widget.SearchView
         android:id="@+id/collectionSearchView"
         style="@style/SearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/size_16dp"
+        android:theme="@style/SearchViewOverlay"
         app:queryHint="@string/search" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/collectionRecyclerView"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="@dimen/size_16dp"
-        android:layout_marginEnd="@dimen/size_16dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:paddingBottom="64dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:itemCount="4"
-        tools:listitem="@layout/item_collection" />
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/collectionRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/size_16dp"
+            android:layout_marginEnd="@dimen/size_16dp"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/size_64dp"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_collection" />
+
+        <LinearLayout
+            android:id="@+id/placeholderGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/size_24dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/placeholderImage"
+                android:layout_width="@dimen/size_260dp"
+                android:layout_height="@dimen/size_130dp"
+                android:contentDescription="@string/error_placeholder"
+                android:scaleType="centerCrop"
+                android:src="@drawable/error" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/placeholderText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_16dp"
+                android:fontFamily="@font/dehinted_razerf5_regular"
+                android:text="@string/error"
+                android:textAlignment="center"
+                android:textColor="@color/light_mode_txt"
+                android:textSize="@dimen/size_16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/retryButton"
+                style="@style/styleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_20dp"
+                android:text="@string/retry" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
 </LinearLayout>

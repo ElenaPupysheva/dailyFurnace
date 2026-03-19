@@ -1,8 +1,8 @@
 package com.alonsonya.dailyfurnace.di
 
 import com.alonsonya.dailyfurnace.BuildConfig
-import com.alonsonya.dailyfurnace.data.api.TokenApi
 import com.alonsonya.dailyfurnace.data.api.ApiService
+import com.alonsonya.dailyfurnace.data.api.TokenApi
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -25,9 +25,10 @@ val networkModule = module {
             else HttpLoggingInterceptor.Level.NONE
         }
         OkHttpClient.Builder()
-            .connectTimeout(20, TimeUnit.SECONDS)
-            .readTimeout(20, TimeUnit.SECONDS)
-            .writeTimeout(20, TimeUnit.SECONDS)
+            .connectTimeout(5, TimeUnit.SECONDS)
+            .readTimeout(5, TimeUnit.SECONDS)
+            .writeTimeout(5, TimeUnit.SECONDS)
+            .callTimeout(8, TimeUnit.SECONDS)
             .addInterceptor(logging)
             .build()
     }
