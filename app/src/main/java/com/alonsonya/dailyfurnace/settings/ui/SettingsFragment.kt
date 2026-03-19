@@ -1,16 +1,14 @@
 package com.alonsonya.dailyfurnace.settings.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alonsonya.dailyfurnace.App
-import com.alonsonya.dailyfurnace.R
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.alonsonya.dailyfurnace.databinding.FragmentSettingsBinding
 import com.alonsonya.dailyfurnace.settings.presentation.SettingsViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SettingsFragment : Fragment() {
     private val viewModel: SettingsViewModel by viewModel()
@@ -39,16 +37,16 @@ class SettingsFragment : Fragment() {
             viewModel.onThemeToggled(isChecked)
         }
 
-        binding.appShare.setOnClickListener {
-            val shareMessage = getString(R.string.link)
-            val shareIntent = Intent().apply {
-                action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, shareMessage)
-                type = "text/plain"
-            }
-            val chooser = Intent.createChooser(shareIntent, getString(R.string.share_text))
-            startActivity(chooser)
-        }
+        /*binding.appShare.setOnClickListener {
+             val shareMessage = getString(R.string.link)
+             val shareIntent = Intent().apply {
+                 action = Intent.ACTION_SEND
+                 putExtra(Intent.EXTRA_TEXT, shareMessage)
+                 type = "text/plain"
+             }
+             val chooser = Intent.createChooser(shareIntent, getString(R.string.share_text))
+             startActivity(chooser)
+         }*/
 
     }
 

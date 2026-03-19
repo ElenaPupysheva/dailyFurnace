@@ -26,14 +26,19 @@ android {
     buildTypes {
         debug {
             buildConfigField("Boolean", "IS_DEBUG", "true")
+            applicationIdSuffix = ".debug"
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            buildConfigField("String", "SERVER_BASE_URL", "\"http://149.154.71.181:6060/\"")
         }
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("Boolean", "IS_DEBUG", "false")
+            buildConfigField("Boolean", "IS_DEBUG", "true")
+            buildConfigField("String", "SERVER_BASE_URL", "\"http://149.154.71.181:6060/\"")
         }
     }
 
