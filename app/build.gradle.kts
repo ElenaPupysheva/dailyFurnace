@@ -26,8 +26,6 @@ android {
     buildTypes {
         debug {
             buildConfigField("Boolean", "IS_DEBUG", "true")
-            applicationIdSuffix = ".debug"
-            applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             buildConfigField("String", "SERVER_BASE_URL", "\"http://149.154.71.181:6060/\"")
         }
