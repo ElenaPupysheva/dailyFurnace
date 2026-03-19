@@ -1,7 +1,6 @@
 package com.alonsonya.dailyfurnace.favorite.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -26,7 +25,7 @@ class FurnaceAdapter(
             furnaceName.text = item.name
             furnaceImage.load(item.imageUrl) {
                 placeholder(R.drawable.fire)
-                error(R.drawable.fire)
+                error(R.drawable.error)
                 crossfade(true)
             }
 
@@ -44,4 +43,3 @@ class FurnaceAdapter(
         holder.bind(getItem(position))
     }
 }
-

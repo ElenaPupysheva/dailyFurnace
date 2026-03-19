@@ -2,6 +2,7 @@ package com.alonsonya.dailyfurnace.media.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alonsonya.dailyfurnace.AppError
 import com.alonsonya.dailyfurnace.data.FurnaceItem
 import com.alonsonya.dailyfurnace.media.domain.CollectionInteractor
 import kotlinx.coroutines.CancellationException
@@ -12,13 +13,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 data class CollectionUiState(
     val loading: Boolean = false,
     val loadingMore: Boolean = false,
     val endReached: Boolean = false,
-    val error: String? = null,
+    val error: AppError? = null,
     val items: List<FurnaceItem> = emptyList(),
+    val query: String = ""
 )
 
 class CollectionViewModel(
@@ -34,7 +40,7 @@ class CollectionViewModel(
 
     private var currentQuery: String = ""
     private var offset: Int = 0
-    private var endReached: Boolean = false
+    private var endReachedInternal: Boolean = false
     private var syncInFlight: Boolean = false
 
     private var observeJob: Job? = null
@@ -48,7 +54,7 @@ class CollectionViewModel(
         if (syncInFlight) return
 
         offset = 0
-        endReached = false
+        endReachedInternal = false
 
         _state.update {
             it.copy(
@@ -64,14 +70,14 @@ class CollectionViewModel(
             try {
                 val loadedCount = collectionInteractor.syncFurnacesPage(limit, 0)
 
-                endReached = loadedCount < limit
+                endReachedInternal = loadedCount < limit
                 offset = loadedCount
 
                 _state.update {
                     it.copy(
                         loading = false,
                         loadingMore = false,
-                        endReached = endReached,
+                        endReached = endReachedInternal,
                         error = null
                     )
                 }
@@ -82,7 +88,7 @@ class CollectionViewModel(
                     it.copy(
                         loading = false,
                         loadingMore = false,
-                        error = e.message ?: "Network error"
+                        error = mapError(e)
                     )
                 }
             } finally {
@@ -94,7 +100,7 @@ class CollectionViewModel(
     fun loadNext() {
         if (currentQuery.isNotBlank()) return
         if (syncInFlight) return
-        if (_state.value.loading || _state.value.loadingMore || endReached) return
+        if (_state.value.loading || _state.value.loadingMore || endReachedInternal) return
 
         _state.update {
             it.copy(
@@ -108,13 +114,13 @@ class CollectionViewModel(
             try {
                 val loadedCount = collectionInteractor.syncFurnacesPage(limit, offset)
 
-                endReached = loadedCount < limit
+                endReachedInternal = loadedCount < limit
                 offset += loadedCount
 
                 _state.update {
                     it.copy(
                         loadingMore = false,
-                        endReached = endReached,
+                        endReached = endReachedInternal,
                         error = null
                     )
                 }
@@ -124,7 +130,7 @@ class CollectionViewModel(
                 _state.update {
                     it.copy(
                         loadingMore = false,
-                        error = e.message ?: "Network error"
+                        error = mapError(e)
                     )
                 }
             } finally {
@@ -140,6 +146,8 @@ class CollectionViewModel(
         currentQuery = q
         searchJob?.cancel()
 
+        _state.update { it.copy(query = q) }
+
         if (q.isBlank()) {
             observeFeed()
             _state.update {
@@ -147,7 +155,8 @@ class CollectionViewModel(
                     loading = false,
                     loadingMore = false,
                     error = null,
-                    endReached = endReached
+                    endReached = endReachedInternal,
+                    query = q
                 )
             }
             return
@@ -161,7 +170,8 @@ class CollectionViewModel(
                     loading = false,
                     loadingMore = false,
                     endReached = true,
-                    error = null
+                    error = null,
+                    query = q
                 )
             }
             return
@@ -173,13 +183,34 @@ class CollectionViewModel(
                 loadingMore = false,
                 items = emptyList(),
                 endReached = true,
-                error = null
+                error = null,
+                query = q
             )
         }
 
         searchJob = viewModelScope.launch {
             delay(debounceMs)
             observeSearch(q)
+        }
+    }
+
+    fun retry() {
+        if (currentQuery.isBlank()) {
+            loadFirstPage()
+        } else {
+            if (currentQuery.length < minQueryLength) return
+
+            _state.update {
+                it.copy(
+                    loading = true,
+                    loadingMore = false,
+                    items = emptyList(),
+                    endReached = true,
+                    error = null,
+                    query = currentQuery
+                )
+            }
+            observeSearch(currentQuery)
         }
     }
 
@@ -192,7 +223,7 @@ class CollectionViewModel(
                         it.copy(
                             loading = false,
                             loadingMore = false,
-                            error = e.message ?: "Database error"
+                            error = mapError(e)
                         )
                     }
                 }
@@ -202,7 +233,7 @@ class CollectionViewModel(
                             items = items,
                             loading = false,
                             loadingMore = false,
-                            endReached = endReached,
+                            endReached = endReachedInternal,
                             error = null
                         )
                     }
@@ -219,7 +250,7 @@ class CollectionViewModel(
                         it.copy(
                             loading = false,
                             loadingMore = false,
-                            error = e.message ?: "Database error"
+                            error = mapError(e)
                         )
                     }
                 }
@@ -234,6 +265,24 @@ class CollectionViewModel(
                         )
                     }
                 }
+        }
+    }
+
+    private fun mapError(throwable: Throwable): AppError {
+        return when (throwable) {
+            is UnknownHostException,
+            is SocketTimeoutException,
+            is IOException -> AppError.NoInternet
+
+            is HttpException -> {
+                when (throwable.code()) {
+                    404 -> AppError.NotFound
+                    500, 502, 503, 504 -> AppError.Server
+                    else -> AppError.Unknown
+                }
+            }
+
+            else -> AppError.Unknown
         }
     }
 }

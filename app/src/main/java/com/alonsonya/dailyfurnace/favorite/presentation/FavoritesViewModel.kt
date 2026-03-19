@@ -2,6 +2,7 @@ package com.alonsonya.dailyfurnace.favorite.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.alonsonya.dailyfurnace.AppError
 import com.alonsonya.dailyfurnace.data.repo.FurnacesRepository
 import com.alonsonya.dailyfurnace.favorite.domain.FavoritesRepository
 import kotlinx.coroutines.Dispatchers
@@ -19,12 +20,21 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
+import java.io.IOException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
-data class FavoriteUiItem(val id: Int, val name: String, val imageUrl: String?)
+data class FavoriteUiItem(
+    val id: Int,
+    val name: String,
+    val imageUrl: String?
+)
+
 data class FavoriteUiState(
     val loading: Boolean = false,
     val items: List<FavoriteUiItem> = emptyList(),
-    val error: String? = null
+    val error: AppError? = null
 )
 
 class FavoritesViewModel(
@@ -42,31 +52,67 @@ class FavoritesViewModel(
             .flatMapLatest { ids: Set<Int> ->
                 flow {
                     if (ids.isEmpty()) {
-                        emit(FavoriteUiState(items = emptyList()))
+                        emit(
+                            FavoriteUiState(
+                                loading = false,
+                                items = emptyList(),
+                                error = null
+                            )
+                        )
                         return@flow
                     }
 
                     emit(FavoriteUiState(loading = true))
 
-                    val dtos = coroutineScope {
+                    val results = coroutineScope {
                         ids.map { id ->
-                            async { runCatching { furnacesRepo.getFurnace(id) }.getOrNull() }
-                        }.awaitAll().filterNotNull()
+                            async {
+                                runCatching { furnacesRepo.getFurnace(id) }
+                            }
+                        }.awaitAll()
                     }
 
-                    val ui = dtos
+                    val successfulDtos = results.mapNotNull { it.getOrNull() }
+                    val firstError = results.firstNotNullOfOrNull { it.exceptionOrNull() }
+
+                    if (successfulDtos.isEmpty() && firstError != null) {
+                        emit(
+                            FavoriteUiState(
+                                loading = false,
+                                items = emptyList(),
+                                error = mapError(firstError)
+                            )
+                        )
+                        return@flow
+                    }
+
+                    val uiItems = successfulDtos
                         .sortedBy { it.id }
-                        .map { f ->
+                        .map { furnace ->
                             FavoriteUiItem(
-                                id = f.id,
-                                name = f.title,
-                                imageUrl = f.imageUrl ?: f.thumbnailUrl
+                                id = furnace.id,
+                                name = furnace.title,
+                                imageUrl = furnace.imageUrl ?: furnace.thumbnailUrl
                             )
                         }
 
-                    emit(FavoriteUiState(items = ui))
+                    emit(
+                        FavoriteUiState(
+                            loading = false,
+                            items = uiItems,
+                            error = null
+                        )
+                    )
                 }
-                    .catch { e -> emit(FavoriteUiState(error = e.message ?: "Network error")) }
+                    .catch { e ->
+                        emit(
+                            FavoriteUiState(
+                                loading = false,
+                                items = emptyList(),
+                                error = mapError(e)
+                            )
+                        )
+                    }
                     .flowOn(Dispatchers.IO)
             }
             .stateIn(
@@ -74,7 +120,6 @@ class FavoritesViewModel(
                 SharingStarted.WhileSubscribed(5_000),
                 FavoriteUiState()
             )
-
 
     fun removeFromFavorites(id: Int) {
         viewModelScope.launch {
@@ -85,6 +130,24 @@ class FavoritesViewModel(
     fun clearAllFavorites() {
         viewModelScope.launch {
             favorites.clearAll()
+        }
+    }
+
+    private fun mapError(throwable: Throwable): AppError {
+        return when (throwable) {
+            is UnknownHostException,
+            is SocketTimeoutException,
+            is IOException -> AppError.NoInternet
+
+            is HttpException -> {
+                when (throwable.code()) {
+                    404 -> AppError.NotFound
+                    500, 502, 503, 504 -> AppError.Server
+                    else -> AppError.Unknown
+                }
+            }
+
+            else -> AppError.Unknown
         }
     }
 }

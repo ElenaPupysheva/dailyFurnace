@@ -4,16 +4,16 @@
     android:id="@+id/collectionListItem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/size_8dp"
     app:cardBackgroundColor="@color/card_color"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="3dp"
+    app:cardCornerRadius="@dimen/size_8dp"
+    app:cardElevation="@dimen/size_3dp"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="@dimen/size_8dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/furnace_image"
@@ -32,11 +32,11 @@
             android:id="@+id/furnace_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/size_4dp"
             android:ellipsize="end"
             android:gravity="center"
             android:maxLines="2"
-            android:textSize="12sp"
+            android:textSize="@dimen/size_12sp"
             android:textStyle="bold"
             android:textColor="@color/light_mode_txt"
             app:layout_constraintBottom_toBottomOf="parent"
